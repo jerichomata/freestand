@@ -11,3 +11,11 @@ pip install -r requirements.txt
 ```
 npm install
 ```
+# To run django server
+```
+python ./manage.py runserver
+```
+# To run frontend/webpack 
+```
+npm run dev
+```
