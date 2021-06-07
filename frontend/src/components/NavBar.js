@@ -4,17 +4,12 @@ import SearchBar from "material-ui-search-bar";
 import Typography from "@material-ui/core/Typography";
 import { FormHelperText, Toolbar } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
 export default function NavBar() {
   return (
-    <AppBar>
+    <AppBar style={{ position: "relative" }}>
       <Toolbar>
-        <Grid
-          justify="space-around"
-          alignItems="center"
-          container
-          
-        >
+        <Grid justify="space-around" alignItems="center" container>
           <Grid item>
             <Typography style={{ fontWeight: 700, fontSize: 40 }}>
               Freestand
