@@ -1,12 +1,17 @@
 1. Seller
     - Register
+        - First name
+        - Last name
+        - Email
+        - Phone
     - Login
     - Logout
-    - Profile
-        - image (Prof Pic, Gallery)
-        - text (Title, short desc, location, @, About, links)
 
-2. Categories 
+2. Profile
+    - image (Prof Pic, Gallery)
+    - text (Title, short desc, location, @, About, links)
+
+3. Categories 
     - Avail Listings
     - Search
         - Filters
