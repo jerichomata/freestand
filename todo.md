@@ -6,7 +6,16 @@
         - image (Prof Pic, Gallery)
         - text (Title, short desc, location, @, About, links)
 
-2. Home Page
+2. Categories 
+    - Avail Listings
+    - Search
+        - Filters
+    - Seller
+        - Banner Pic, Profile Pic, Short Desc
+
+
+
+Home
     - Categories
     - Featured
         - Seller
@@ -15,6 +24,8 @@
         - Banner Image
         - See all button
 
-3. Categories 
-    - Seller
-        - Banner Pic, Profile Pic, Short Desc
+
+Long term Todos
+- Notifications
+- Messages 
+- Explore -> hashtags
