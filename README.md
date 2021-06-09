@@ -21,5 +21,6 @@ python ./manage.py runserver
 # To run frontend/webpack
 
 ```
+cd .\frontend\
 npm run dev
 ```

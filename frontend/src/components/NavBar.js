@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import SearchBar from "material-ui-search-bar";
 import Typography from "@material-ui/core/Typography";
@@ -7,35 +7,38 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 export default function NavBar() {
   return (
-    <AppBar style={{ position: "relative" }}>
-      <Toolbar>
-        <Grid justify="space-around" alignItems="center" container>
-          <Grid item>
-            <Typography style={{ fontWeight: 700, fontSize: 40 }}>
-              Freestand
-            </Typography>
-          </Grid>
+    <Fragment>
+      <AppBar style={{ position: "relative" }}>
+        <Toolbar>
+          <Grid justify="space-around" alignItems="center" container>
+            <Grid item>
+              <Typography style={{ fontWeight: 700, fontSize: 35 }}>
+                Freestand
+              </Typography>
+            </Grid>
 
-          <Grid item>
-            <SearchBar
-            //value={this.state.value}
-            //onChange={(newValue) => this.setState({ value: newValue })}
-            //onRequestSearch={() => doSomethingWith(this.state.value)}
-            />
+            <Grid item>
+              <SearchBar
+              //value={this.state.value}
+              //onChange={(newValue) => this.setState({ value: newValue })}
+              //onRequestSearch={() => doSomethingWith(this.state.value)}
+              />
+            </Grid>
+            <Button
+              style={{
+                fontFamily: [['"Montserrat"', "Open Sans"].join(",")],
+                fontWeight: 400,
+                fontSize: 16,
+                textTransform: "none",
+              }}
+              color="secondary"
+            >
+              Login
+            </Button>
           </Grid>
-          <Button
-            style={{
-              fontFamily: [['"Montserrat"', "Open Sans"].join(",")],
-              fontWeight: 400,
-              fontSize: 16,
-              textTransform: "none",
-            }}
-            color="secondary"
-          >
-            Login
-          </Button>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
+    </Fragment>
   );
 }
