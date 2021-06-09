@@ -10,31 +10,28 @@ export default function NavBar() {
     <Fragment>
       <AppBar style={{ position: "relative" }}>
         <Toolbar>
-          <Grid justify="space-around" alignItems="center" container>
-            <Grid item>
+          <Grid alignItems="center" container>
+            <Grid item md={8}>
               <Typography style={{ fontWeight: 700, fontSize: 35 }}>
                 Freestand
               </Typography>
             </Grid>
-
-            <Grid item>
-              <SearchBar
-              //value={this.state.value}
-              //onChange={(newValue) => this.setState({ value: newValue })}
-              //onRequestSearch={() => doSomethingWith(this.state.value)}
-              />
+            <Grid item md={3}>
+              <SearchBar></SearchBar>
             </Grid>
-            <Button
-              style={{
-                fontFamily: [['"Montserrat"', "Open Sans"].join(",")],
-                fontWeight: 400,
-                fontSize: 16,
-                textTransform: "none",
-              }}
-              color="secondary"
-            >
-              Login
-            </Button>
+            <Grid item md={1} align="center">
+              <Button
+                style={{
+                  fontFamily: [['"Montserrat"', "Open Sans"].join(",")],
+                  fontWeight: 400,
+                  fontSize: 16,
+                  textTransform: "none",
+                }}
+                color="secondary"
+              >
+                Login
+              </Button>
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
