@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import Image from "material-ui-image";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -85,7 +84,11 @@ export default function Header() {
             <img src="../static/images/BendingFigure.png" />
           </Grid>
           <Grid item justify="center" container>
-            <Button variant="outlined" color="secondary" className={classes.button}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              className={classes.button}
+            >
               Launch a Profile
             </Button>
           </Grid>

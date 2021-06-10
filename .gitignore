@@ -2,3 +2,4 @@
 __pycache__
 frontend/static/frontend/main.js
 frontend/static/frontend/main.js.LICENSE.txt
+/env/

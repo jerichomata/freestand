@@ -9,6 +9,7 @@ pip install -r requirements.txt
 # To install javascript dependencies run:
 
 ```
+cd .\frontend\
 npm install
 ```
 
