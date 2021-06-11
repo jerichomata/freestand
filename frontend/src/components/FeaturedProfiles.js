@@ -20,19 +20,19 @@ export default function FeaturedProfiles() {
         container
         direction="row"
         style={{ marginTop: "5%" }}
-        justify="space-evenly"
+        justify="space-between"
         spacing={2}
       >
         <Grid item xs={12}>
           <Typography className={classes.featuredHeading}>Featured</Typography>
         </Grid>
-        <Grid item xs={12} lg={3} align="center">
+        <Grid item xs={12} md={3} align="center">
           <ProfileCard></ProfileCard>
         </Grid>
-        <Grid item xs={12} lg={3} align="center">
+        <Grid item xs={12} md={3} align="center">
           <ProfileCard></ProfileCard>
         </Grid>
-        <Grid item xs={12} lg={3} align="center">
+        <Grid item xs={12} md={3} align="center">
           <ProfileCard></ProfileCard>
         </Grid>
       </Grid>

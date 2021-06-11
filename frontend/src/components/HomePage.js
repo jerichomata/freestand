@@ -4,6 +4,7 @@ import CategoriesBar from "./CategoriesBar"
 import Header from "./Header";
 import Grid from "@material-ui/core/Grid";
 import FeaturedProfiles from "./FeaturedProfiles";
+import FeaturedCategories from "./FeaturedCategories";
 export default function HomePage() {
   return (
     <div>
@@ -11,6 +12,7 @@ export default function HomePage() {
       <CategoriesBar />
       <Header />
       <FeaturedProfiles />
+      <FeaturedCategories />
     </div>
   );
 }
