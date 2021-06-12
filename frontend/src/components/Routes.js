@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import CategoryPage from "./CategoryPage";
+import ListingsPage from "./ListingsPage";
 import HomePage from "./HomePage";
 
 const Routes = () => {
@@ -8,7 +8,7 @@ const Routes = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/categories" component={CategoryPage} />
+        <Route path="/categories" component={ListingsPage} />
       </Switch>
     </BrowserRouter>
   );

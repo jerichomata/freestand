@@ -2,9 +2,10 @@ import React, { Fragment } from "react";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
+    
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
@@ -30,28 +31,76 @@ export default function Header() {
         justify="space-between"
       >
         <Grid item>
-          <Button className={classes.buttons}>Cooking</Button>
+          <Button
+            className={classes.buttons}
+            component={Link}
+            to="/categories/cooking"
+          >
+            Cooking
+          </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons}>Meditation</Button>
+          <Button
+            className={classes.buttons}
+            component={Link}
+            to="/categories/meditation"
+          >
+            Meditation
+          </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons}>Fitness</Button>
+          <Button
+            className={classes.buttons}
+            component={Link}
+            to="/categories/fitness"
+          >
+            Fitness
+          </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons}>Therapy</Button>
+          <Button
+            className={classes.buttons}
+            component={Link}
+            to="/categories/therapy"
+          >
+            Therapy
+          </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons}>Dance</Button>
+          <Button
+            className={classes.buttons}
+            component={Link}
+            to="/categories/dance"
+          >
+            Dance
+          </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons}>Yoga</Button>
+          <Button
+            className={classes.buttons}
+            component={Link}
+            to="/categories/yoga"
+          >
+            Yoga
+          </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons}>Nutrition</Button>
+          <Button
+            className={classes.buttons}
+            component={Link}
+            to="/categories/nutrition"
+          >
+            Nutrition
+          </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons}>Pilates</Button>
+          <Button
+            className={classes.buttons}
+            component={Link}
+            to="/categories/pilates"
+          >
+            Pilates
+          </Button>
         </Grid>
       </Grid>
     </Fragment>
