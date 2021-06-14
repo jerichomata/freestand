@@ -9,6 +9,8 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Paper from "@material-ui/core/Paper";
+import ProfilePage from "./ProfilePage";
+import Link from "@material-ui/core/Link";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "284px",
@@ -36,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     width: "34px",
   },
   profileName: {
+    color: "white",
     fontWeight: 700,
     fontSize: "15.48px",
   },
@@ -53,30 +56,32 @@ export default function ProfileCard() {
     <Fragment>
       <Card className={classes.root}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image="../static/images/ProfileHeader.png"
-          />
-          <CardContent className={classes.cardContent}>
-            <Paper className={classes.paper}>
-              <CardMedia
-                className={classes.profilePic}
-                image="../static/images/ProfilePic.png"
-              />
-            </Paper>
-            <Typography
-              className={classes.profileName}
-              gutterBottom
-              variant="h5"
-              component="h2"
-            >
-              Sweath With Hannah
-            </Typography>
-            <Typography className={classes.profileDesc}>
-              Virtual HIT classes, group and privates. Have fun and get a
-              workout in at the same time! Join our community today!
-            </Typography>
-          </CardContent>
+          <Link href="/profile">
+            <CardMedia
+              className={classes.media}
+              image="../static/images/ProfileHeader.png"
+            />
+            <CardContent className={classes.cardContent}>
+              <Paper className={classes.paper}>
+                <CardMedia
+                  className={classes.profilePic}
+                  image="../static/images/ProfilePic.png"
+                />
+              </Paper>
+              <Typography
+                className={classes.profileName}
+                gutterBottom
+                variant="h5"
+                component="h2"
+              >
+                Sweath With Hannah
+              </Typography>
+              <Typography className={classes.profileDesc}>
+                Virtual HIT classes, group and privates. Have fun and get a
+                workout in at the same time! Join our community today!
+              </Typography>
+            </CardContent>
+          </Link>
         </CardActionArea>
       </Card>
     </Fragment>
