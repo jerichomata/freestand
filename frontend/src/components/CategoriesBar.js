@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
-    
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
@@ -31,56 +30,32 @@ export default function Header() {
         justify="space-between"
       >
         <Grid item>
-          <Button
-            className={classes.buttons}
-            component={Link}
-            to="/categories/cooking"
-          >
+          <Button className={classes.buttons} component={Link} to="/cooking">
             Cooking
           </Button>
         </Grid>
         <Grid item>
-          <Button
-            className={classes.buttons}
-            component={Link}
-            to="/categories/meditation"
-          >
+          <Button className={classes.buttons} component={Link} to="/meditation">
             Meditation
           </Button>
         </Grid>
         <Grid item>
-          <Button
-            className={classes.buttons}
-            component={Link}
-            to="/categories/fitness"
-          >
+          <Button className={classes.buttons} component={Link} to="/fitness">
             Fitness
           </Button>
         </Grid>
         <Grid item>
-          <Button
-            className={classes.buttons}
-            component={Link}
-            to="/categories/therapy"
-          >
+          <Button className={classes.buttons} component={Link} to="/therapy">
             Therapy
           </Button>
         </Grid>
         <Grid item>
-          <Button
-            className={classes.buttons}
-            component={Link}
-            to="/categories/dance"
-          >
+          <Button className={classes.buttons} component={Link} to="/dance">
             Dance
           </Button>
         </Grid>
         <Grid item>
-          <Button
-            className={classes.buttons}
-            component={Link}
-            to="/categories/yoga"
-          >
+          <Button className={classes.buttons} component={Link} to="/yoga">
             Yoga
           </Button>
         </Grid>
@@ -88,17 +63,13 @@ export default function Header() {
           <Button
             className={classes.buttons}
             component={Link}
-            to="/categories/nutrition"
+            to="/nutritionist"
           >
             Nutrition
           </Button>
         </Grid>
         <Grid item>
-          <Button
-            className={classes.buttons}
-            component={Link}
-            to="/categories/pilates"
-          >
+          <Button className={classes.buttons} component={Link} to="/pilates">
             Pilates
           </Button>
         </Grid>

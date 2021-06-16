@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {},
 }));
 
-export default function CategoryProfiles() {
+export default function CategoryProfiles(props) {
   const classes = useStyles();
   return (
     <Fragment>
@@ -20,7 +20,7 @@ export default function CategoryProfiles() {
         spacing={5}
       >
         <Grid item xs={12}>
-          <Typography className={classes.categoryHeading}>Fitness</Typography>
+          <Typography className={classes.categoryHeading}>{props.category}</Typography>
         </Grid>
         <Grid item xs={12}>
           <Typography className={classes.filterSubHeading}>

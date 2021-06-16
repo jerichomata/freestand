@@ -1,9 +1,13 @@
 import React, { Fragment } from "react";
+import { useRouteMatch } from "react-router";
+import { Route, Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import CategoryCard from "./CategoryCard";
+//import Link from "@material-ui/core/Link";
+
 const useStyles = makeStyles((theme) => ({
   root: {},
   categoriesHeader: {
@@ -20,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FeaturedCategories() {
   const classes = useStyles();
+  const { path, url } = useRouteMatch();
+
   return (
     <Fragment>
       <Grid
@@ -38,52 +44,68 @@ export default function FeaturedCategories() {
           <Button className={classes.seeAllButton}>See all</Button>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <CategoryCard
-            title="Fitness"
-            image="../static/images/Fitness.png"
-          ></CategoryCard>
+          <Link to="/fitness">
+            <CategoryCard
+              title="Fitness"
+              image="../static/images/Fitness.png"
+            ></CategoryCard>
+          </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <CategoryCard
-            title="Dance"
-            image="../static/images/Dance.png"
-          ></CategoryCard>
+          <Link to="/dance">
+            <CategoryCard
+              title="Dance"
+              image="../static/images/Dance.png"
+            ></CategoryCard>
+          </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <CategoryCard
-            title="Yoga"
-            image="../static/images/Yoga.png"
-          ></CategoryCard>
+          <Link to="/yoga">
+            <CategoryCard
+              title="Yoga"
+              image="../static/images/Yoga.png"
+            ></CategoryCard>
+          </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <CategoryCard
-            title="Meditation"
-            image="../static/images/Meditation.png"
-          ></CategoryCard>
+          <Link to="/meditation">
+            <CategoryCard
+              title="Meditation"
+              image="../static/images/Meditation.png"
+            ></CategoryCard>
+          </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <CategoryCard
-            title="Cooking"
-            image="../static/images/Cooking.png"
-          ></CategoryCard>
+          <Link to="/cooking">
+            <CategoryCard
+              title="Cooking"
+              image="../static/images/Cooking.png"
+            ></CategoryCard>
+          </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <CategoryCard
-            title="Nutritionist"
-            image="../static/images/Nutritionist.png"
-          ></CategoryCard>
+          <Link to="/nutritionist">
+            <CategoryCard
+              title="Nutritionist"
+              image="../static/images/Nutritionist.png"
+            ></CategoryCard>
+          </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <CategoryCard
-            title="Therapy"
-            image="../static/images/Therapy.png"
-          ></CategoryCard>
+          <Link to="/therapy">
+            <CategoryCard
+              title="Therapy"
+              image="../static/images/Therapy.png"
+            ></CategoryCard>
+          </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <CategoryCard
-            title="Pilates"
-            image="../static/images/Pilates.png"
-          ></CategoryCard>
+          <Link to="/pilates">
+            <CategoryCard
+              title="Pilates"
+              image="../static/images/Pilates.png"
+            ></CategoryCard>
+          </Link>
         </Grid>
       </Grid>
     </Fragment>
