@@ -84,7 +84,14 @@ export default function Profile() {
   return (
     <Fragment>
       <Grid container direction="row">
-        <Grid item container xs={8} direction="column">
+        <Grid
+          item
+          container
+          xs={12}
+          lg={8}
+          direction="column"
+          alignItems="center"
+        >
           <Typography className={classes.profileName}>
             Sweat with Hannah
           </Typography>
@@ -103,11 +110,18 @@ export default function Profile() {
               />
             </Paper>
           </Grid>
-          <Grid item container direction="row" justify="flex-start" spacing={8}>
-            <Grid item>
+          <Grid
+            item
+            container
+            direction="row"
+            justify="center"
+            spacing={0}
+            alignItems="center"
+          >
+            <Grid item xs={12} md={4} align="center">
               <Paper
                 className={classes.paperClass}
-                style={{ width: "294px", height: "172px", marginTop: "0%" }}
+                style={{ height: "150px", width: "250px" }}
               >
                 <Grid container spacing={1}>
                   <Grid item xs={12}>
@@ -178,66 +192,40 @@ export default function Profile() {
                       </Typography>
                     </Grid>
                   </Grid>
-
-                  <Grid item container direction="row">
-                    <Grid item xs={2} align="center">
-                      <MenuBookIcon />
-                    </Grid>
-
-                    <Grid
-                      item
-                      xs={10}
-                      className={classes.informationFont}
-                      container
-                      direction="row"
-                      justify="flex-start"
-                      spacing={0}
-                    >
-                      <Typography>Offerings</Typography>
-                      <Typography style={{ color: "white", marginLeft: "2%" }}>
-                        Group Classes
-                      </Typography>
-                    </Grid>
-                  </Grid>
                 </Grid>
               </Paper>
             </Grid>
 
-            <Grid item>
+            <Grid item xs={12} md={4} align="center">
               <Paper
                 className={classes.paperClass}
-                style={{ width: "290px", height: "225px", marginTop: "-15%" }}
+                style={{ width: "290px", height: "225px" }}
               >
-                <Grid
-                  container
-                  spacing={1}
-                  direction="row"
-                  justify="space-evenly"
-                >
+                <Grid container spacing={2} direction="row" justify="center">
                   <Grid item xs={12}>
                     <Typography style={{ fontWeight: 600, fontSize: "16px" }}>
                       Photos
                     </Typography>
                   </Grid>
-                  <Grid item align="center">
+                  <Grid item align="center" xs={5}>
                     <CardMedia
                       className={classes.profilePhotoUpload}
                       image="../static/images/ProfilePhotoUpload.png"
                     />
                   </Grid>
-                  <Grid item align="center">
+                  <Grid item align="center" xs={5}>
                     <CardMedia
                       className={classes.profilePhotoUpload}
                       image="../static/images/ProfilePhotoUpload.png"
                     />
                   </Grid>
-                  <Grid item align="center">
+                  <Grid item align="center" xs={5}>
                     <CardMedia
                       className={classes.profilePhotoUpload}
                       image="../static/images/ProfilePhotoUpload.png"
                     />
                   </Grid>
-                  <Grid item align="center">
+                  <Grid item align="center" xs={5}>
                     <CardMedia
                       className={classes.profilePhotoUpload}
                       image="../static/images/ProfilePhotoUpload.png"
@@ -287,7 +275,15 @@ export default function Profile() {
           </Grid>
         </Grid>
 
-        <Grid item container xs={4} direction="column">
+        <Grid
+          item
+          container
+          xs={12}
+          lg={4}
+          direction="column"
+          alignItems="center"
+          justify="center"
+        >
           <Grid item container direction="row" justify="space-evenly">
             <Button
               xs={2}
@@ -301,7 +297,7 @@ export default function Profile() {
             </Button>
           </Grid>
           <Grid item>
-            <Paper className={classes.paperClass}>
+            <Paper className={classes.paperClass} style={{}}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <Typography style={{ fontWeight: 500, fontSize: "18px" }}>
@@ -315,7 +311,7 @@ export default function Profile() {
             </Paper>
           </Grid>
           <Grid item>
-            <Paper className={classes.paperClass}>
+            <Paper className={classes.paperClass} style={{}}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <Typography style={{ fontWeight: 500, fontSize: "16.96px" }}>

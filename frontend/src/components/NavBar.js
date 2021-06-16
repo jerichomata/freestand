@@ -6,7 +6,7 @@ import { FormHelperText, Toolbar } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-
+import Link from "@material-ui/core/Link";
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   freestandName: {
+    color: "white",
     fontWeight: 700,
     fontSize: 35,
   },
@@ -37,8 +38,10 @@ export default function NavBar() {
         <Toolbar>
           <Grid alignItems="center" container>
             <Grid item xs={12} md={8} className={classes.freestandGridItem}>
-              <Typography className={classes.freestandName}>
-                Freestand
+              <Typography>
+                <Link href='/' className={classes.freestandName}>
+                  Freestand
+                </Link>
               </Typography>
             </Grid>
             <Grid item xs={12} md={3}>
