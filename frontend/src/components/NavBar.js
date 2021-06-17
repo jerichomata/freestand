@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
+import Login from "./Login";
+import { Link as LinkReact } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -39,7 +41,7 @@ export default function NavBar() {
           <Grid alignItems="center" container>
             <Grid item xs={12} md={8} className={classes.freestandGridItem}>
               <Typography>
-                <Link href='/' className={classes.freestandName}>
+                <Link href="/" className={classes.freestandName}>
                   Freestand
                 </Link>
               </Typography>
@@ -48,7 +50,12 @@ export default function NavBar() {
               <SearchBar></SearchBar>
             </Grid>
             <Grid item xs={12} md={1} align="center">
-              <Button className={classes.loginButton} color="secondary">
+              <Button
+                className={classes.loginButton}
+                color="secondary"
+                component={LinkReact}
+                to="/login"
+              >
                 Login
               </Button>
             </Grid>

@@ -3,13 +3,14 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ListingsPage from "./ListingsPage";
 import HomePage from "./HomePage";
 import ProfilePage from "./ProfilePage";
-import categoryId from "./FeaturedCategories";
+import Login from "./Login";
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/login" component={Login} />
         <Route
           path="/fitness"
           render={(props) => <ListingsPage {...props} category={"Fitness"} />}
