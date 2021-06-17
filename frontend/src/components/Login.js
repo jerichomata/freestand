@@ -9,6 +9,7 @@ import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
+import FreestandNavBar from "./FreestandNavBar";
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -62,41 +63,33 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleSubmit(event) {
-      event.preventDefault();
-      console.log( 'Email:', email, 'Password: ', password); 
-     // You should see email and password in console.
-     // ..code to submit form to backend here...
-
+    event.preventDefault();
+    console.log("Email:", email, "Password: ", password);
+    // You should see email and password in console.
+    // ..code to submit form to backend here...
   }
   return (
     <Fragment>
-      <AppBar className={classes.appBar} elevation={0}>
-        <Toolbar>
-          <Grid alignItems="center" container>
-            <Grid item xs={12} md={8} className={classes.freestandGridItem}>
-              <Typography>
-                <Link href="/" className={classes.freestandName}>
-                  Freestand
-                </Link>
-              </Typography>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-      <Toolbar />
+      <FreestandNavBar />
 
-      <Grid container justify="center" alignItems="center" >
+      <Grid container justify="center" alignItems="center">
         <Paper className={classes.paper}>
           <Grid item xs={12} align="center">
             <Typography className={classes.welcomeBack}>
               Welcome Back!
             </Typography>
           </Grid>
-          <Grid item container xs={12} direction="column" style={{marginTop: "5%"}}>
+          <Grid
+            item
+            container
+            xs={12}
+            direction="column"
+            style={{ marginTop: "5%" }}
+          >
             <form onSubmit={handleSubmit}>
               <Grid item xs={12} align="center">
                 <TextField
@@ -105,27 +98,34 @@ export default function Login() {
                   variant="outlined"
                   className={classes.textField}
                   value={email}
-                  onInput={ e=>setEmail(e.target.value)}
+                  onInput={(e) => setEmail(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{marginTop: "5%"}}>
+              <Grid item xs={12} align="center" style={{ marginTop: "5%" }}>
                 <TextField
                   required
                   label="Password"
                   variant="outlined"
                   className={classes.textField}
                   value={password}
-                  onInput={ e=>setPassword(e.target.value)}
+                  onInput={(e) => setPassword(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{marginTop: "5%"}}>
+              <Grid item xs={12} align="center" style={{ marginTop: "5%" }}>
                 <Button type="submit" className={classes.loginButton}>
                   Login
                 </Button>
               </Grid>
             </form>
           </Grid>
-          <Grid item container direction="row" xs={12} alignItems="center" style={{marginTop: "5%"}}>
+          <Grid
+            item
+            container
+            direction="row"
+            xs={12}
+            alignItems="center"
+            style={{ marginTop: "5%" }}
+          >
             <Grid item xs={7} align="right">
               <Typography className={classes.accountText}>
                 Don't have an account?
