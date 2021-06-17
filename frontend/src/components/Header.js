@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { Link as LinkReact } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.up("xs")]: {
@@ -88,6 +88,8 @@ export default function Header() {
               variant="outlined"
               color="secondary"
               className={classes.button}
+              component={LinkReact}
+              to="/signup"
             >
               Launch a Profile
             </Button>

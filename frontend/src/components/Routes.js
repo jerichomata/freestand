@@ -4,13 +4,14 @@ import ListingsPage from "./ListingsPage";
 import HomePage from "./HomePage";
 import ProfilePage from "./ProfilePage";
 import Login from "./Login";
-
+import SignUp from "./SignUp"
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
         <Route
           path="/fitness"
           render={(props) => <ListingsPage {...props} category={"Fitness"} />}
