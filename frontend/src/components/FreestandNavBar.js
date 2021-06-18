@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
     position: "relative",
+    marginTop: "-1.15%",
   },
   freestandGridItem: {
     [theme.breakpoints.down("sm")]: {

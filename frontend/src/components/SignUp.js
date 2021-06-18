@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect, useLayoutEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import FreestandNavBar from "./FreestandNavBar";
+
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -63,6 +64,10 @@ const useStyles = makeStyles((theme) => ({
     width: "197px",
     height: "53px",
   },
+  vector: {
+    backgroundSize: "cover",
+    height: "938px",
+  },
 }));
 
 export default function SignUp() {
@@ -76,8 +81,28 @@ export default function SignUp() {
     // You should see email and password in console.
     // ..code to submit form to backend here...
   }
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "white";
+    let imgUrl = "../static/images/Vector.png";
+    document.body.style.width = "100%";
+
+    document.body.style.backgroundImage = `url(${imgUrl})`;
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "938px";
+  });
+
+  useLayoutEffect(() => {
+    return () => {
+      document.body.style.removeProperty("background-color");
+      document.body.style.removeProperty("width");
+      document.body.style.removeProperty("background-image");
+    };
+  }, []);
+
   return (
     <Fragment>
+      {/*<img src="../static/images/Vector.png" className={classes.vector} />*/}
       <FreestandNavBar />
 
       <Grid container justify="center" alignItems="center">
@@ -93,7 +118,13 @@ export default function SignUp() {
             style={{ marginTop: "5%" }}
           >
             <form onSubmit={handleSubmit}>
-              <Grid item container direction="row" justify="space-around" style={{marginTop: "3%"}}>
+              <Grid
+                item
+                container
+                direction="row"
+                justify="space-around"
+                style={{ marginTop: "3%" }}
+              >
                 <Grid item xs={5} align="center">
                   <TextField
                     required
