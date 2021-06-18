@@ -63,6 +63,13 @@ const useStyles = makeStyles((theme) => ({
     width: "197px",
     height: "53px",
   },
+  figureImage: {
+    width: "70px",
+    height: "130px",
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
 }));
 
 export default function SignUp() {
@@ -81,6 +88,33 @@ export default function SignUp() {
       <FreestandNavBar />
 
       <Grid container justify="center" alignItems="center">
+        <Grid
+          xs={2}
+          item
+          container
+          direction="column"
+          spacing={5}
+          alignItems="flex-start"
+        >
+          <Grid item xs={4}>
+            <img
+              src="../static/images/Figure1.png"
+              className={classes.figureImage}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <img
+              src="../static/images/Figure2.png"
+              className={classes.figureImage}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <img
+              src="../static/images/Figure3.png"
+              className={classes.figureImage}
+            />
+          </Grid>
+        </Grid>
         <Paper className={classes.paper}>
           <Grid item xs={12} align="center">
             <Typography className={classes.welcomeBack}>Sign Up</Typography>
@@ -93,7 +127,13 @@ export default function SignUp() {
             style={{ marginTop: "5%" }}
           >
             <form onSubmit={handleSubmit}>
-              <Grid item container direction="row" justify="space-around" style={{marginTop: "3%"}}>
+              <Grid
+                item
+                container
+                direction="row"
+                justify="space-around"
+                style={{ marginTop: "3%" }}
+              >
                 <Grid item xs={5} align="center">
                   <TextField
                     required
@@ -165,6 +205,33 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </Paper>
+        <Grid
+          xs={2}
+          item
+          container
+          direction="column"
+          spacing={5}
+          alignItems="center"
+        >
+          <Grid item xs={4}>
+            <img
+              src="../static/images/Figure4.png"
+              className={classes.figureImage}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <img
+              src="../static/images/Figure5.png"
+              className={classes.figureImage}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <img
+              src="../static/images/Figure6.png"
+              className={classes.figureImage}
+            />
+          </Grid>
+        </Grid>
       </Grid>
     </Fragment>
   );
