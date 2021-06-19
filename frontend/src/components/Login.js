@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import FreestandNavBar from "./FreestandNavBar";
+import { Link as LinkReact } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -47,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     fontSize: "22.41px",
     textTransform: "none",
+    "&:hover": {
+      color: "black",
+      backgroundColor: "#FF5924",
+    },
   },
   accountText: {
     fontWeight: 400,
@@ -132,7 +137,13 @@ export default function Login() {
               </Typography>
             </Grid>
             <Grid item xs={5}>
-              <Button className={classes.orangeButtons}>Sign Up</Button>
+              <Button
+                className={classes.orangeButtons}
+                component={LinkReact}
+                to="/signup"
+              >
+                Sign Up
+              </Button>
             </Grid>
           </Grid>
           <Grid item xs={12} align="center">
