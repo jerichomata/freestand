@@ -2,13 +2,13 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 const app = firebase.initializeApp({
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+    apiKey: "AIzaSyCRFX-9IJ74s0Y4uoO3tBPFMgFAfqPRw6A",
+    authDomain: "freestand-development.firebaseapp.com",
+    projectId: "freestand-development",
+    storageBucket: "freestand-development.appspot.com",
+    messagingSenderId: "519160619950",
+    appId: "1:519160619950:web:9582841d5fd8a38f925e3f",
+    measurementId: "G-ND9HM3FVJR"
 });
 export const auth = app.auth();
 export default app;

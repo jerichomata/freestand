@@ -10,9 +10,9 @@ import Paper from "@material-ui/core/Paper";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import FreestandNavBar from "./FreestandNavBar";
-import { Link as LinkReact, useHistory } from "react-router-dom";
+import { Link as LinkReact } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-
+import { Alert, AlertTitle } from "@material-ui/lab";
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -68,25 +68,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+export default function ForgotPassword() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
-  const history = useHistory();
+  const { resetPassword } = useAuth();
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     try {
+      setMessage("");
       setError("");
       setLoading(true);
-      await login(email, password);
-      history.push("/");
+      await resetPassword(email);
+      setMessage("Check your inbox for further instructions");
     } catch {
-      setError("Failed to log in");
+      setError("Failed to reset password");
     }
   }
 
@@ -98,7 +98,7 @@ export default function Login() {
         <Paper className={classes.paper}>
           <Grid item xs={12} align="center">
             <Typography className={classes.welcomeBack}>
-              Welcome Back!
+              Password Reset
             </Typography>
           </Grid>
           <Grid
@@ -108,6 +108,7 @@ export default function Login() {
             direction="column"
             style={{ marginTop: "5%" }}
           >
+            {message && <Alert severity="error">{message}</Alert>}
             <form onSubmit={handleSubmit}>
               <Grid item xs={12} align="center">
                 <TextField
@@ -120,21 +121,21 @@ export default function Login() {
                 />
               </Grid>
               <Grid item xs={12} align="center" style={{ marginTop: "5%" }}>
-                <TextField
-                  required
-                  label="Password"
-                  variant="outlined"
-                  className={classes.textField}
-                  value={password}
-                  onInput={(e) => setPassword(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} align="center" style={{ marginTop: "5%" }}>
                 <Button type="submit" className={classes.loginButton}>
-                  Login
+                  Reset Password
                 </Button>
               </Grid>
             </form>
+          </Grid>
+
+          <Grid item xs={12} align="center">
+            <Button
+              component={LinkReact}
+              to="/login"
+              className={classes.orangeButtons}
+            >
+              Login
+            </Button>
           </Grid>
           <Grid
             item
@@ -158,15 +159,6 @@ export default function Login() {
                 Sign Up
               </Button>
             </Grid>
-          </Grid>
-          <Grid item xs={12} align="center">
-            <Button
-              component={LinkReact}
-              to="/forgot-password"
-              className={classes.orangeButtons}
-            >
-              Forgot Password?
-            </Button>
           </Grid>
         </Paper>
       </Grid>

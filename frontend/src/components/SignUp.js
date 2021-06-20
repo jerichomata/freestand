@@ -10,7 +10,9 @@ import Paper from "@material-ui/core/Paper";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import FreestandNavBar from "./FreestandNavBar";
-import { Link as LinkReact } from "react-router-dom";
+import { Link as LinkReact, useHistory } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { Alert, AlertTitle } from "@material-ui/lab";
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -82,11 +84,23 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit(event) {
+  const { signup, currentUser } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useHistory()
+  async function handleSubmit(event) {
     event.preventDefault();
     console.log("Email:", email, "Password: ", password);
-    // You should see email and password in console.
-    // ..code to submit form to backend here...
+    try {
+      setError("");
+      setLoading(true);
+      await signup(email, password);
+      history.push("/")
+    } catch {
+      setError("Failed to sign up");
+    }
+
+    setLoading(false);
   }
   return (
     <Fragment>
@@ -131,6 +145,9 @@ export default function SignUp() {
             direction="column"
             style={{ marginTop: "5%" }}
           >
+            
+            {error && <Alert severity="error">{error}</Alert>}
+
             <form onSubmit={handleSubmit}>
               <Grid
                 item
@@ -186,7 +203,11 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12} align="center" style={{ marginTop: "5%" }}>
-                <Button type="submit" className={classes.loginButton}>
+                <Button
+                  disabled={loading}
+                  type="submit"
+                  className={classes.loginButton}
+                >
                   Sign Up
                 </Button>
               </Grid>
