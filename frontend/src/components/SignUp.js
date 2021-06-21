@@ -87,20 +87,61 @@ export default function SignUp() {
   const { signup, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useHistory()
-  async function handleSubmit(event) {
+  const history = useHistory();
+
+  function handleSubmit(event) {
     event.preventDefault();
-    console.log("Email:", email, "Password: ", password);
-    try {
-      setError("");
-      setLoading(true);
-      await signup(email, password);
-      history.push("/")
-    } catch {
-      setError("Failed to sign up");
-    }
+    setError("");
+    setLoading(true);
+
+    signup(email, password).then(() => {
+      history.push("/");
+    }).catch((e) => {
+      setError(getMessageFromErrorCode(e))
+    });
 
     setLoading(false);
+  
+  }
+
+  function getMessageFromErrorCode(e) {
+    switch (e.code.substr(5)) {
+      case "ERROR_EMAIL_ALREADY_IN_USE":
+      case "account-exists-with-different-credential":
+      case "email-already-in-use":
+        return "Email already used. Go to login page.";
+        break;
+      case "ERROR_WRONG_PASSWORD":
+      case "wrong-password":
+        return "Wrong email/password combination.";
+        break;
+      case "weak-password":
+        return "Password should be at least 6 characters";
+        break;
+      case "ERROR_USER_NOT_FOUND":
+      case "user-not-found":
+        return "No user found with this email.";
+        break;
+      case "ERROR_USER_DISABLED":
+      case "user-disabled":
+        return "User disabled.";
+        break;
+      case "ERROR_TOO_MANY_REQUESTS":
+      case "operation-not-allowed":
+        return "Too many requests to log into this account.";
+        break;
+      case "ERROR_OPERATION_NOT_ALLOWED":
+      case "operation-not-allowed":
+        return "Server error, please try again later.";
+        break;
+      case "ERROR_INVALID_EMAIL":
+      case "invalid-email":
+        return "Email address is invalid.";
+        break;
+      default:
+        return "Sign Up failed. Please try again.";
+        break;
+    }
   }
   return (
     <Fragment>
@@ -145,7 +186,6 @@ export default function SignUp() {
             direction="column"
             style={{ marginTop: "5%" }}
           >
-            
             {error && <Alert severity="error">{error}</Alert>}
 
             <form onSubmit={handleSubmit}>

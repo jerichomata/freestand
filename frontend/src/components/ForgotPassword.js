@@ -108,7 +108,7 @@ export default function ForgotPassword() {
             direction="column"
             style={{ marginTop: "5%" }}
           >
-            {message && <Alert severity="error">{message}</Alert>}
+            {message && <Alert severity="success">{message}</Alert>}
             <form onSubmit={handleSubmit}>
               <Grid item xs={12} align="center">
                 <TextField

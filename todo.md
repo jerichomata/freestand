@@ -32,9 +32,9 @@ Long term Todos
 
 Frontend
 
-1. Make Profile Page component
-2. Add button and link functionality to what I can
-3. Login sequence (firebase?)
+1. Fix alerts for login/signup/forgot password
+2. Add logout functionality
+3. When user signs up take them through sign up pages
    When backend is set up:
 
 - Category listings page needs to be dynamically loaded from database
