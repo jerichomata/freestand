@@ -81,22 +81,21 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    
     setError("");
     setLoading(true);
 
-    login(email, password).then(() => {
-      history.push("/");
-    }).catch((e) => {
-      setError(getMessageFromErrorCode(e))
-    });
+    login(email, password)
+      .then(() => {
+        history.push("/");
+      })
+      .catch((e) => {
+        setError(getMessageFromErrorCode(e));
+      });
 
     setLoading(false);
-
   }
 
   function getMessageFromErrorCode(e) {
-    console.log(e.code.substr(5))
     switch (e.code.substr(5)) {
       case "ERROR_EMAIL_ALREADY_IN_USE":
       case "account-exists-with-different-credential":
@@ -162,7 +161,7 @@ export default function Login() {
                   label="Email address"
                   variant="outlined"
                   className={classes.textField}
-                  style={{marginTop: "3%"}}
+                  style={{ marginTop: "3%" }}
                   value={email}
                   onInput={(e) => setEmail(e.target.value)}
                 />

@@ -76,17 +76,56 @@ export default function ForgotPassword() {
   const [loading, setLoading] = useState(false);
   const { resetPassword } = useAuth();
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-
-    try {
-      setMessage("");
-      setError("");
-      setLoading(true);
-      await resetPassword(email);
-      setMessage("Check your inbox for further instructions");
-    } catch {
-      setError("Failed to reset password");
+    setMessage("");
+    setError("");
+    setLoading(true);
+    resetPassword(email)
+      .then(() => {
+        setMessage("Check your inbox for further instructions");
+      })
+      .catch((e) => {
+        setError(getMessageFromErrorCode(e));
+      });
+  }
+  function getMessageFromErrorCode(e) {
+    switch (e.code.substr(5)) {
+      case "ERROR_EMAIL_ALREADY_IN_USE":
+      case "account-exists-with-different-credential":
+      case "email-already-in-use":
+        return "Email already used. Go to login page.";
+        break;
+      case "ERROR_WRONG_PASSWORD":
+      case "wrong-password":
+        return "Wrong email/password combination.";
+        break;
+      case "weak-password":
+        return "Password should be at least 6 characters";
+        break;
+      case "ERROR_USER_NOT_FOUND":
+      case "user-not-found":
+        return "No user found with this email.";
+        break;
+      case "ERROR_USER_DISABLED":
+      case "user-disabled":
+        return "User disabled.";
+        break;
+      case "ERROR_TOO_MANY_REQUESTS":
+      case "operation-not-allowed":
+        return "Too many requests to log into this account.";
+        break;
+      case "ERROR_OPERATION_NOT_ALLOWED":
+      case "operation-not-allowed":
+        return "Server error, please try again later.";
+        break;
+      case "ERROR_INVALID_EMAIL":
+      case "invalid-email":
+        return "Email address is invalid.";
+        break;
+      default:
+        return "Log in failed. Please try again.";
+        break;
     }
   }
 
@@ -108,6 +147,7 @@ export default function ForgotPassword() {
             direction="column"
             style={{ marginTop: "5%" }}
           >
+            {error && <Alert severity="error">{error}</Alert>}
             {message && <Alert severity="success">{message}</Alert>}
             <form onSubmit={handleSubmit}>
               <Grid item xs={12} align="center">
@@ -116,6 +156,7 @@ export default function ForgotPassword() {
                   label="Email address"
                   variant="outlined"
                   className={classes.textField}
+                  style={{ marginTop: "3%" }}
                   value={email}
                   onInput={(e) => setEmail(e.target.value)}
                 />
