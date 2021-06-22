@@ -9,6 +9,7 @@ import { AuthProvider } from "../contexts/AuthContext";
 import ForgotPassword from "./ForgotPassword";
 import Logout from "./Logout";
 import PrivateRoute from "./PrivateRoute";
+import EmailVerification from "./EmailVerification";
 const Routes = () => {
   return (
     <AuthProvider>
@@ -17,7 +18,8 @@ const Routes = () => {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/logout" component={Logout} />
-          <Route path="/signup" component={SignUp} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signup/verify-email" component={EmailVerification} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route
             path="/fitness"
