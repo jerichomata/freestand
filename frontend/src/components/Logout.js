@@ -19,53 +19,29 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
   },
-  freestandGridItem: {
-    [theme.breakpoints.down("sm")]: {
-      textAlign: "center",
-    },
-  },
-  freestandName: {
-    color: "white",
-    fontWeight: 700,
-    fontSize: 35,
-  },
-  paper: {
-    width: "494px",
-    height: "433px",
-  },
+
+
   welcomeBack: {
     fontWeight: 500,
     fontSize: "30px",
   },
-  textField: {
-    width: "432px",
-    height: "56px",
-    borderRadius: "5px",
+  paper: {
+    width: "494px",
+    height: "250px",
   },
-  loginButton: {
-    width: "432px",
-    height: "66px",
+
+
+  orangeButtons: {
     backgroundColor: "#FF5924",
     color: "white",
-    borderRadius: "10px",
-    fontWeight: 400,
-    fontSize: "22.41px",
+    fontWeight: 500,
+    fontSize: "18px",
     textTransform: "none",
     "&:hover": {
       color: "black",
       backgroundColor: "#FF5924",
     },
-  },
-  accountText: {
-    fontWeight: 400,
-    fontSize: "18px",
-    color: "#797979",
-  },
-  orangeButtons: {
-    color: "#FF5924",
-    fontWeight: 500,
-    fontSize: "18px",
-    textTransform: "none",
+    borderRadius: "10px",
   },
 }));
 
@@ -94,13 +70,13 @@ export default function Login() {
       <Grid container justify="center" alignItems="center">
         <Paper className={classes.paper}>
           <Grid item xs={12} align="center">
-            <Typography className={classes.welcomeBack}>
+            <Typography className={classes.welcomeBack} style={{marginTop: "5%"}}>
               Log out of {currentUser.email}?
             </Typography>
           </Grid>
           {error && <Alert severity="error">{error}</Alert>}
-          <Grid item xs={12}>
-            <Button className={classes.orangeButtons} onClick={handleLogout}>
+          <Grid item xs={12} align="center">
+            <Button className={classes.orangeButtons} onClick={handleLogout} style={{marginTop: "5%"}}>
               Log Out
             </Button>
           </Grid>
