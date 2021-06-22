@@ -1,11 +1,5 @@
 # Freestand
 
-# To install python dependencies run:
-
-```
-pip install -r requirements.txt
-```
-
 # To install javascript dependencies run:
 
 ```
@@ -13,13 +7,7 @@ cd .\frontend\
 npm install
 ```
 
-# To run django server
-
-```
-python ./manage.py runserver
-```
-
-# To run frontend/webpack
+# To run project
 
 ```
 cd .\frontend\
