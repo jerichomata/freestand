@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import SearchBar from "material-ui-search-bar";
 import Typography from "@material-ui/core/Typography";
@@ -9,6 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import Login from "./Login";
 import { Link as LinkReact } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import firebase from "firebase/app";
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -34,6 +36,33 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar() {
   const classes = useStyles();
+  const [logLink, setLogLink] = useState("")
+  const [logName, setLogName] = useState("")
+
+  const myFunction = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setLogLink("/logout")
+        setLogName("Log Out")
+      } else {
+        setLogLink("/login")
+        setLogName("Log In")
+      }
+    });
+  }
+
+
+  useEffect(() => {
+    myFunction();
+    return () => {
+      setLogName({});
+      setLogLink({});
+    };
+}, []);
+
+  const [error, setError] = useState("");
+  function handleLogClick() {}
+
   return (
     <Fragment>
       <AppBar className={classes.appBar} elevation={0}>
@@ -54,9 +83,10 @@ export default function NavBar() {
                 className={classes.loginButton}
                 color="secondary"
                 component={LinkReact}
-                to="/login"
+                to={logLink}
+                onClick={handleLogClick}
               >
-                Login
+                {logName}
               </Button>
             </Grid>
           </Grid>

@@ -32,7 +32,7 @@ Long term Todos
 
 Frontend
 
-1. Fix alerts for login/signup/forgot password
+1. 
 2. Add logout functionality
 3. When user signs up take them through sign up pages
    When backend is set up:

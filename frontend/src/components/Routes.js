@@ -7,6 +7,8 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import { AuthProvider } from "../contexts/AuthContext";
 import ForgotPassword from "./ForgotPassword";
+import Logout from "./Logout";
+import PrivateRoute from "./PrivateRoute";
 const Routes = () => {
   return (
     <AuthProvider>
@@ -14,7 +16,8 @@ const Routes = () => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/logout" component={Logout} />
+          <Route path="/signup" component={SignUp} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route
             path="/fitness"

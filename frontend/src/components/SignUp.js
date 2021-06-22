@@ -94,14 +94,15 @@ export default function SignUp() {
     setError("");
     setLoading(true);
 
-    signup(email, password).then(() => {
-      history.push("/");
-    }).catch((e) => {
-      setError(getMessageFromErrorCode(e))
-    });
+    signup(email, password)
+      .then(() => {
+        history.push("/");
+      })
+      .catch((e) => {
+        setError(getMessageFromErrorCode(e));
+      });
 
     setLoading(false);
-  
   }
 
   function getMessageFromErrorCode(e) {
