@@ -2,11 +2,12 @@ const path = require("path");
 const webpack = require("webpack");
 const DEVELOPMENT = process.env.NODE_ENV === "development";
 const PRODUCTION = process.env.NODE_ENV === "production";
+const PUBLIC_PATH = "/static/frontend";
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "./static/frontend"),
-    filename: "[name].js",
+    filename: "main.js",
   },
   module: {
     rules: [
@@ -23,8 +24,13 @@ module.exports = {
     minimize: true,
   },
   devServer: {
+    port: 8080,
+    publicPath: PUBLIC_PATH,
+    inline: true,
+    hot: true,
     historyApiFallback: true,
   },
+
   plugins: [
     new webpack.DefinePlugin({
       "process.env.PRODUCTION": JSON.stringify(PRODUCTION),

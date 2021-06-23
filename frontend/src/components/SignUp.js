@@ -96,7 +96,7 @@ export default function SignUp() {
 
     signup(email, password)
       .then(() => {
-        history.push("/");
+        history.push("/signup/email-verify");
       })
       .catch((e) => {
         setError(getMessageFromErrorCode(e));

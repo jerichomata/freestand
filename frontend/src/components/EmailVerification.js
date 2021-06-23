@@ -82,11 +82,11 @@ const useStyles = makeStyles((theme) => ({
 export default function EmailVerification() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const { signup, currentUser } = useAuth();
+
+  const { currentUser } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  
   const history = useHistory();
 
   function handleSubmit(event) {
