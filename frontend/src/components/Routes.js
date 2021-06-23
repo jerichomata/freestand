@@ -19,7 +19,7 @@ const Routes = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/logout" component={Logout} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/signup/verify-email" component={EmailVerification} />
+          <Route exact path="/verify-email" component={EmailVerification} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route
             path="/fitness"

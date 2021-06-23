@@ -13,6 +13,7 @@ import FreestandNavBar from "./FreestandNavBar";
 import { Link as LinkReact, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Alert, AlertTitle } from "@material-ui/lab";
+import { auth } from "../firebase"
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -95,8 +96,9 @@ export default function SignUp() {
     setLoading(true);
 
     signup(email, password)
-      .then(() => {
-        history.push("/signup/email-verify");
+      .then((userCredential) => {
+        userCredential.user.sendEmailVerification();
+        history.push("/verify-email");
       })
       .catch((e) => {
         setError(getMessageFromErrorCode(e));
