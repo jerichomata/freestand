@@ -97,7 +97,9 @@ export default function SignUp() {
 
     signup(email, password)
       .then((userCredential) => {
-        userCredential.user.sendEmailVerification();
+        userCredential.user.sendEmailVerification({
+          url: "http://localhost:8080/",
+        });
         history.push("/verify-email");
       })
       .catch((e) => {
