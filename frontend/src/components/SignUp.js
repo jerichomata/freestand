@@ -29,25 +29,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     fontSize: 35,
   },
-  paper: {
-    width: "471px",
-    height: "541px",
-  },
   welcomeBack: {
     color: "black",
     fontWeight: 500,
     fontSize: "30px",
   },
-  textField: {
-    width: "432px",
-    height: "56px",
-    borderRadius: "5px",
-  },
   loginButton: {
-    //maxWidth: "432px",
-    //maxHeight: "66px",
-    //minWidth: "432px",
-    //minHeight: "66px",
     backgroundColor: "#FF5924",
     color: "white",
     borderRadius: "10px",
@@ -69,10 +56,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     fontSize: "18px",
     textTransform: "none",
-  },
-  namesInput: {
-    width: "197px",
-    height: "53px",
   },
   figureImage: {
     width: "70px",
@@ -208,7 +191,6 @@ export default function SignUp() {
             md={10}
             direction="column"
             alignItems="stretch"
-            
           >
             {error && <Alert severity="error">{error}</Alert>}
 
@@ -232,7 +214,7 @@ export default function SignUp() {
                 </Grid>
               </Grid>
 
-              <Grid item xs={12} align="center" style={{marginTop: "3%"}}>
+              <Grid item xs={12} align="center" style={{ marginTop: "3%" }}>
                 <TextField
                   fullWidth={true}
                   required
@@ -242,7 +224,7 @@ export default function SignUp() {
                   onInput={(e) => setEmail(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{marginTop: "3%"}}>
+              <Grid item xs={12} align="center" style={{ marginTop: "3%" }}>
                 <TextField
                   required
                   fullWidth={true}
@@ -250,7 +232,7 @@ export default function SignUp() {
                   variant="outlined"
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{marginTop: "3%"}}>
+              <Grid item xs={12} align="center" style={{ marginTop: "3%" }}>
                 <TextField
                   required
                   label="Password"
@@ -260,7 +242,13 @@ export default function SignUp() {
                   onInput={(e) => setPassword(e.target.value)}
                 />
               </Grid>
-              <Grid item container xs={12} justify="center" style={{marginTop: "3%"}}>
+              <Grid
+                item
+                container
+                xs={12}
+                justify="center"
+                style={{ marginTop: "3%" }}
+              >
                 <Grid item xs={6}>
                   <Button
                     disabled={loading}
@@ -275,7 +263,7 @@ export default function SignUp() {
             </form>
           </Grid>
 
-          <Grid item xs={12} align="center" style={{marginTop: "2%"}}>
+          <Grid item xs={12} align="center" style={{ marginTop: "2%" }}>
             <Typography className={classes.accountText}>
               Already have an account?
             </Typography>
