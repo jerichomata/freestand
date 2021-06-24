@@ -55,7 +55,9 @@ export default function EmailVerification() {
     setMessage("");
     setError("");
     auth.currentUser
-      .sendEmailVerification()
+      .sendEmailVerification({
+        url: "http://localhost:8080/categories-and-tags",
+      })
       .then(() => {
         setMessage("Verification Link Sent");
       })
