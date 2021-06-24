@@ -13,7 +13,7 @@ import FreestandNavBar from "./FreestandNavBar";
 import { Link as LinkReact, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Alert, AlertTitle } from "@material-ui/lab";
-import { auth } from "../firebase"
+import { auth } from "../firebase";
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     height: "541px",
   },
   welcomeBack: {
+    color: "black",
     fontWeight: 500,
     fontSize: "30px",
   },
@@ -43,8 +44,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "5px",
   },
   loginButton: {
-    width: "432px",
-    height: "66px",
+    //maxWidth: "432px",
+    //maxHeight: "66px",
+    //minWidth: "432px",
+    //minHeight: "66px",
     backgroundColor: "#FF5924",
     color: "white",
     borderRadius: "10px",
@@ -74,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   figureImage: {
     width: "70px",
     height: "130px",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },
@@ -152,7 +155,12 @@ export default function SignUp() {
     <Fragment>
       <FreestandNavBar />
 
-      <Grid container justify="center" alignItems="center">
+      <Grid
+        direction="row"
+        container
+        justify="space-evenly"
+        alignItems="center"
+      >
         <Grid
           xs={2}
           item
@@ -180,7 +188,16 @@ export default function SignUp() {
             />
           </Grid>
         </Grid>
-        <Paper className={classes.paper}>
+        <Grid
+          item
+          container
+          style={{ backgroundColor: "white" }}
+          xs={12}
+          sm={8}
+          md={6}
+          spacing={3}
+          justify="center"
+        >
           <Grid item xs={12} align="center">
             <Typography className={classes.welcomeBack}>Sign Up</Typography>
           </Grid>
@@ -188,25 +205,21 @@ export default function SignUp() {
             item
             container
             xs={12}
+            md={10}
             direction="column"
-            style={{ marginTop: "5%" }}
+            alignItems="stretch"
+            
           >
             {error && <Alert severity="error">{error}</Alert>}
 
             <form onSubmit={handleSubmit}>
-              <Grid
-                item
-                container
-                direction="row"
-                justify="space-around"
-                style={{ marginTop: "3%" }}
-              >
+              <Grid item container direction="row" justify="space-between">
                 <Grid item xs={5} align="center">
                   <TextField
                     required
                     label="First Name"
                     variant="outlined"
-                    className={classes.namesInput}
+                    fullWidth={true}
                   />
                 </Grid>
                 <Grid item xs={5} align="center">
@@ -214,74 +227,67 @@ export default function SignUp() {
                     required
                     label="Last Name"
                     variant="outlined"
-                    className={classes.namesInput}
+                    fullWidth={true}
                   />
                 </Grid>
               </Grid>
 
-              <Grid item xs={12} align="center" style={{ marginTop: "3%" }}>
+              <Grid item xs={12} align="center" style={{marginTop: "3%"}}>
                 <TextField
+                  fullWidth={true}
                   required
                   label="Email"
                   variant="outlined"
-                  className={classes.textField}
                   value={email}
                   onInput={(e) => setEmail(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{ marginTop: "3%" }}>
+              <Grid item xs={12} align="center" style={{marginTop: "3%"}}>
                 <TextField
                   required
+                  fullWidth={true}
                   label="Username"
                   variant="outlined"
-                  className={classes.textField}
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{ marginTop: "3%" }}>
+              <Grid item xs={12} align="center" style={{marginTop: "3%"}}>
                 <TextField
                   required
                   label="Password"
                   variant="outlined"
-                  className={classes.textField}
+                  fullWidth={true}
                   value={password}
                   onInput={(e) => setPassword(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{ marginTop: "5%" }}>
-                <Button
-                  disabled={loading}
-                  type="submit"
-                  className={classes.loginButton}
-                >
-                  Sign Up
-                </Button>
+              <Grid item container xs={12} justify="center" style={{marginTop: "3%"}}>
+                <Grid item xs={6}>
+                  <Button
+                    disabled={loading}
+                    type="submit"
+                    className={classes.loginButton}
+                    fullWidth={true}
+                  >
+                    Sign Up
+                  </Button>
+                </Grid>
               </Grid>
             </form>
           </Grid>
-          <Grid
-            item
-            container
-            direction="row"
-            xs={12}
-            alignItems="center"
-            style={{ marginTop: "5%" }}
-          >
-            <Grid item xs={8} align="right">
-              <Typography className={classes.accountText}>
-                Already have an account?
-              </Typography>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                className={classes.orangeButtons}
-                component={LinkReact}
-                to="/login"
-              >
-                Login
-              </Button>
-            </Grid>
+
+          <Grid item xs={12} align="center" style={{marginTop: "2%"}}>
+            <Typography className={classes.accountText}>
+              Already have an account?
+            </Typography>
+            <Button
+              className={classes.orangeButtons}
+              component={LinkReact}
+              to="/login"
+            >
+              Login
+            </Button>
           </Grid>
-        </Paper>
+        </Grid>
         <Grid
           xs={2}
           item
