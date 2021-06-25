@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import FreestandNavBar from "../FreestandNavBar";
 import { Link as LinkReact, useHistory } from "react-router-dom";
+import firebase from "../../firebase"
 import { Alert, AlertTitle } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
@@ -63,14 +64,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TitlesAndDesc() {
+export default function BasicInfo() {
   const classes = useStyles();
-  const [title, setTitle] = useState("");
-  const [subTitle, setSubTitle] = useState("");
-  const [about, setAbout] = useState("");
+  const [location, setLocation] = useState("");
+  const [language, setLanguage] = useState("");
+  const [groupNumber, setGroupNumber] = useState("");
+  const [age, setAge] =useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
+    //adds test data into the database
+    const db = firebase.firestore();
+    db.collection("BusinessBasicInfo").add({
+      BusinessID: 234567,
+      Age: age,
+      Location: location,
+      Language: language,
+      NumPeople:1
+    })
   }
   return (
     <Fragment>
@@ -88,14 +99,19 @@ export default function TitlesAndDesc() {
               Titles and Description
             </Typography>
           </Grid>
+          <Grid item>
+            <Typography className={classes.sideBarText}>
+              Basic Information
+            </Typography>
+          </Grid>
         </Grid>
         <Grid item container direction="row" xs={12} md={9} spacing={5}>
           <Grid item container direction="row" xs={12} alignItems="flex-start">
             <Grid item container direction="column" xs={12} md={4}>
               <Grid item>
-                <Typography className={classes.headingText}>Title*</Typography>
+                <Typography className={classes.headingText}>Location*</Typography>
                 <Typography className={classes.exampleText}>
-                  Example: Sweat from Home
+                  Example: Brooklyn,NY
                 </Typography>
               </Grid>
             </Grid>
@@ -105,8 +121,8 @@ export default function TitlesAndDesc() {
                 required
                 variant="outlined"
                 className={classes.textField}
-                value={title}
-                onInput={(e) => setTitle(e.target.value)}
+                value={location}
+                onInput={(e) => setLocation(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -114,10 +130,10 @@ export default function TitlesAndDesc() {
             <Grid item container direction="column" xs={12} md={4}>
               <Grid item>
                 <Typography className={classes.headingText}>
-                  Sub Title*
+                  Language*
                 </Typography>
                 <Typography className={classes.exampleText}>
-                  Example: Virtual fitness classes for all ages and levels
+                  Example: English
                 </Typography>
               </Grid>
             </Grid>
@@ -127,33 +143,50 @@ export default function TitlesAndDesc() {
                 required
                 variant="outlined"
                 className={classes.textField}
-                value={subTitle}
-                onInput={(e) => setSubTitle(e.target.value)}
+                value={language}
+                onInput={(e) => setLanguage(e.target.value)}
               />
             </Grid>
           </Grid>
           <Grid item container direction="row" xs={12} alignItems="flex-start">
             <Grid item container direction="column" xs={12} md={4}>
               <Grid item>
-                <Typography className={classes.headingText}>About*</Typography>
+                <Typography className={classes.headingText}>How many Creators?*</Typography>
                 <Typography className={classes.exampleText}>
-                  Example: Hello my name is John and I started sweat from home 1
-                  year ago after being in the fitness world for 5 years working
-                  as a personal trainer. Sweat from Home offers group and
-                  private classes all from the comfort of your own home...{" "}
+                  Example: One Person
                 </Typography>
               </Grid>
             </Grid>
             <Grid item xs={12} md={8} align="center">
               <TextField
-                multiline={true}
                 fullWidth={true}
-                rows={10}
                 required
                 variant="outlined"
                 className={classes.aboutTextField}
-                value={about}
-                onInput={(e) => setAbout(e.target.value)}
+                value={groupNumber}
+                onInput={(e) => setGroupNumber(e.target.value)}
+              />
+            </Grid>
+          </Grid>
+          <Grid item container direction="row" xs={12} alignItems="flex-start">
+            <Grid item container direction="column" xs={12} md={4}>
+              <Grid item>
+                <Typography className={classes.headingText}>
+                  Age*
+                </Typography>
+                <Typography className={classes.exampleText}>
+                  Example: 18-30
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={8} align="center">
+              <TextField
+                fullWidth={true}
+                required
+                variant="outlined"
+                className={classes.textField}
+                value={age}
+                onInput={(e) => setAge(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -169,16 +202,16 @@ export default function TitlesAndDesc() {
             <Grid item xs={12} sm={4} align="center">
               <Button
                 component={LinkReact}
-                to="/categories-and-tags"
+                to="/titles-and-description"
                 className={classes.backButton}
               >
                 Back
               </Button>
             </Grid>
             <Grid item xs={12} sm={8} align="center">
-              <Button className={classes.saveButton}
-              component={LinkReact}
-              to="/basic-info">
+              <Button onClick={handleSubmit} 
+              className={classes.saveButton}
+              >
                 Save
               </Button>
             </Grid>
