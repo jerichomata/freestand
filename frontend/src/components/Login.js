@@ -29,22 +29,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     fontSize: 35,
   },
-  paper: {
-    width: "494px",
-    height: "433px",
-  },
   welcomeBack: {
+    color: "black",
     fontWeight: 500,
     fontSize: "30px",
   },
-  textField: {
-    width: "432px",
-    height: "56px",
-    borderRadius: "5px",
-  },
   loginButton: {
-    width: "432px",
-    height: "66px",
     backgroundColor: "#FF5924",
     color: "white",
     borderRadius: "10px",
@@ -140,7 +130,15 @@ export default function Login() {
       <FreestandNavBar />
 
       <Grid container justify="center" alignItems="center">
-        <Paper className={classes.paper}>
+        <Grid
+          item
+          container
+          xs={12}
+          md={8}
+          lg={6}
+          style={{ backgroundColor: "white" }}
+          justify="center"
+        >
           <Grid item xs={12} align="center">
             <Typography className={classes.welcomeBack}>
               Welcome Back!
@@ -150,8 +148,10 @@ export default function Login() {
             item
             container
             xs={12}
+            sm={8}
+            md={6}
             direction="column"
-            style={{ marginTop: "0%" }}
+            alignItems="stretch"
           >
             {error && <Alert severity="error">{error}</Alert>}
             <form onSubmit={handleSubmit}>
@@ -160,7 +160,7 @@ export default function Login() {
                   required
                   label="Email address"
                   variant="outlined"
-                  className={classes.textField}
+                  fullWidth={true}
                   style={{ marginTop: "3%" }}
                   value={email}
                   onInput={(e) => setEmail(e.target.value)}
@@ -171,15 +171,27 @@ export default function Login() {
                   required
                   label="Password"
                   variant="outlined"
-                  className={classes.textField}
+                  fullWidth={true}
                   value={password}
                   onInput={(e) => setPassword(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{ marginTop: "5%" }}>
-                <Button type="submit" className={classes.loginButton}>
-                  Login
-                </Button>
+              <Grid
+                item
+                container
+                xs={12}
+                justify="center"
+                style={{ marginTop: "3%" }}
+              >
+                <Grid item xs={6}>
+                  <Button
+                    type="submit"
+                    className={classes.loginButton}
+                    fullWidth={true}
+                  >
+                    Login
+                  </Button>
+                </Grid>
               </Grid>
             </form>
           </Grid>
@@ -215,7 +227,7 @@ export default function Login() {
               Forgot Password?
             </Button>
           </Grid>
-        </Paper>
+        </Grid>
       </Grid>
     </Fragment>
   );
