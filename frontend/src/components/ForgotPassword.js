@@ -28,22 +28,13 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     fontSize: 35,
   },
-  paper: {
-    width: "494px",
-    height: "433px",
-  },
   welcomeBack: {
+    color: "black",
     fontWeight: 500,
     fontSize: "30px",
   },
-  textField: {
-    width: "432px",
-    height: "56px",
-    borderRadius: "5px",
-  },
-  loginButton: {
-    width: "432px",
-    height: "66px",
+
+  resetPasswordButton: {
     backgroundColor: "#FF5924",
     color: "white",
     borderRadius: "10px",
@@ -134,19 +125,21 @@ export default function ForgotPassword() {
       <FreestandNavBar />
 
       <Grid container justify="center" alignItems="center">
-        <Paper className={classes.paper}>
+        <Grid
+          item
+          container
+          xs={12}
+          md={8}
+          lg={6}
+          style={{ backgroundColor: "white" }}
+          justify="center"
+        >
           <Grid item xs={12} align="center">
             <Typography className={classes.welcomeBack}>
               Password Reset
             </Typography>
           </Grid>
-          <Grid
-            item
-            container
-            xs={12}
-            direction="column"
-            style={{ marginTop: "5%" }}
-          >
+          <Grid item container xs={12} md={10} direction="column" >
             {error && <Alert severity="error">{error}</Alert>}
             {message && <Alert severity="success">{message}</Alert>}
             <form onSubmit={handleSubmit}>
@@ -155,21 +148,33 @@ export default function ForgotPassword() {
                   required
                   label="Email address"
                   variant="outlined"
-                  className={classes.textField}
+                  fullWidth={true}
                   style={{ marginTop: "3%" }}
                   value={email}
                   onInput={(e) => setEmail(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} align="center" style={{ marginTop: "5%" }}>
-                <Button type="submit" className={classes.loginButton}>
-                  Reset Password
-                </Button>
+              <Grid
+                item
+                container
+                xs={12}
+                justify="center"
+                
+              >
+                <Grid item xs={6} align="center" style={{ marginTop: "5%" }}>
+                  <Button
+                    type="submit"
+                    className={classes.resetPasswordButton}
+                    fullWidth={true}
+                  >
+                    Reset Password
+                  </Button>
+                </Grid>
               </Grid>
             </form>
           </Grid>
 
-          <Grid item xs={12} align="center">
+          <Grid item xs={12} align="center" >
             <Button
               component={LinkReact}
               to="/login"
@@ -184,7 +189,7 @@ export default function ForgotPassword() {
             direction="row"
             xs={12}
             alignItems="center"
-            style={{ marginTop: "5%" }}
+            
           >
             <Grid item xs={7} align="right">
               <Typography className={classes.accountText}>
@@ -201,7 +206,7 @@ export default function ForgotPassword() {
               </Button>
             </Grid>
           </Grid>
-        </Paper>
+        </Grid>
       </Grid>
     </Fragment>
   );
