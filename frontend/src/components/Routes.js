@@ -14,6 +14,7 @@ import CategoriesAndTags from "./SignUpComponents/CategoriesAndTags";
 import TitlesAndDesc from "./SignUpComponents/TitlesAndDesc";
 import BasicInfo from "./SignUpComponents/BasicInfo";
 import Links from "./SignUpComponents/Links";
+import PhotosAndVideos from "./SignUpComponents/PhotosAndVideos";
 const Routes = () => {
   return (
     <AuthProvider>
@@ -28,7 +29,7 @@ const Routes = () => {
           <Route exact path="/titles-and-description" component={TitlesAndDesc} />
           <Route exact path="/basic-info" component={BasicInfo} />          
           <Route exact path="/links" component={Links} />       
-
+          <Route exact path="/photos-and-videos" component={PhotosAndVideos} /> 
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route
             path="/fitness"

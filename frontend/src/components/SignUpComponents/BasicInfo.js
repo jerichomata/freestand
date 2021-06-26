@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import FreestandNavBar from "../FreestandNavBar";
 import { Link as LinkReact, useHistory } from "react-router-dom";
-import firebase from "../../firebase"
+import firebase from "../../firebase";
 import { Alert, AlertTitle } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
@@ -69,8 +69,8 @@ export default function BasicInfo() {
   const [location, setLocation] = useState("");
   const [language, setLanguage] = useState("");
   const [groupNumber, setGroupNumber] = useState("");
-  const [age, setAge] =useState("");
-
+  const [age, setAge] = useState("");
+  const history = useHistory();
   function handleSubmit(event) {
     event.preventDefault();
     //adds test data into the database
@@ -80,8 +80,9 @@ export default function BasicInfo() {
       Age: age,
       Location: location,
       Language: language,
-      NumPeople:1
-    })
+      NumPeople: 1,
+    });
+    history.push("/links")
   }
   return (
     <Fragment>
@@ -109,7 +110,9 @@ export default function BasicInfo() {
           <Grid item container direction="row" xs={12} alignItems="flex-start">
             <Grid item container direction="column" xs={12} md={4}>
               <Grid item>
-                <Typography className={classes.headingText}>Location*</Typography>
+                <Typography className={classes.headingText}>
+                  Location*
+                </Typography>
                 <Typography className={classes.exampleText}>
                   Example: Brooklyn,NY
                 </Typography>
@@ -151,7 +154,9 @@ export default function BasicInfo() {
           <Grid item container direction="row" xs={12} alignItems="flex-start">
             <Grid item container direction="column" xs={12} md={4}>
               <Grid item>
-                <Typography className={classes.headingText}>How many Creators?*</Typography>
+                <Typography className={classes.headingText}>
+                  How many Creators?*
+                </Typography>
                 <Typography className={classes.exampleText}>
                   Example: One Person
                 </Typography>
@@ -171,9 +176,7 @@ export default function BasicInfo() {
           <Grid item container direction="row" xs={12} alignItems="flex-start">
             <Grid item container direction="column" xs={12} md={4}>
               <Grid item>
-                <Typography className={classes.headingText}>
-                  Age*
-                </Typography>
+                <Typography className={classes.headingText}>Age*</Typography>
                 <Typography className={classes.exampleText}>
                   Example: 18-30
                 </Typography>
@@ -209,8 +212,9 @@ export default function BasicInfo() {
               </Button>
             </Grid>
             <Grid item xs={12} sm={8} align="center">
-              <Button onClick={handleSubmit} 
-              className={classes.saveButton}
+              <Button
+                onClick={handleSubmit}
+                className={classes.saveButton}
               >
                 Save
               </Button>

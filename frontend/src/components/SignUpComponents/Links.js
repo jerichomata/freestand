@@ -85,9 +85,9 @@ export default function Links() {
     setDisplayInputList(
       displayInputList.concat(<DisplayInput key={displayInputList.length} />)
     );
-    setUrlList(urlList.concat("test"))
-    setDisplayList(displayList.concat("test"))
-    console.log(urlList) 
+    setUrlList(urlList.concat("test"));
+    setDisplayList(displayList.concat("test"));
+    console.log(urlList);
   }
 
   const UrlInput = () => {
@@ -203,7 +203,7 @@ export default function Links() {
             <Grid item xs={12} sm={4} align="center">
               <Button
                 component={LinkReact}
-                to="/categories-and-tags"
+                to="/basic-info"
                 className={classes.backButton}
               >
                 Back
