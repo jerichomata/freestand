@@ -123,7 +123,10 @@ export default function PhotosAndVideos() {
   const PhotoInput = (props) => {
     return (
       <Grid item>
-        <img src={props.url} style={{ height: 200, width: 200, borderRadius: "10px"}} />
+        <img
+          src={props.url}
+          style={{ height: 200, width: 200, borderRadius: "10px" }}
+        />
       </Grid>
     );
   };
