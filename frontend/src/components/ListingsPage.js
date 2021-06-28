@@ -7,7 +7,7 @@ export default function ListingsPage(props) {
     <div>
       <NavBar />
       <CategoriesBar />
-      <CategoryProfiles category={props.category}/>
+      <CategoryProfiles />
     </div>
   );
 }
