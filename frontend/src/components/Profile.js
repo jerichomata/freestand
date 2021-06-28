@@ -5,7 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ShareIcon from "@material-ui/icons/Share";
@@ -15,7 +15,8 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import LanguageIcon from "@material-ui/icons/Language";
 import BookmarksIcon from "@material-ui/icons/Bookmarks";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
-
+import Modal from "./Modal";
+import { motion } from "framer-motion";
 const useStyles = makeStyles((theme) => ({
   root: {},
   profileName: {
@@ -81,6 +82,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Profile() {
   const classes = useStyles();
+  const [selectedImg, setSelectedImg] = useState(null);
+
   return (
     <Fragment>
       <Grid container direction="row">
@@ -208,28 +211,76 @@ export default function Profile() {
                     </Typography>
                   </Grid>
                   <Grid item align="center" xs={5}>
-                    <CardMedia
-                      className={classes.profilePhotoUpload}
-                      image="../static/images/ProfilePhotoUpload.png"
-                    />
+                    <motion.div
+                      layout
+                      onClick={() =>
+                        setSelectedImg(
+                          "../static/images/ProfilePhotoUpload.png"
+                        )
+                      }
+                    >
+                      <motion.img
+                        className={classes.profilePhotoUpload}
+                        src="../static/images/ProfilePhotoUpload.png"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1 }}
+                      />
+                    </motion.div>
                   </Grid>
                   <Grid item align="center" xs={5}>
-                    <CardMedia
-                      className={classes.profilePhotoUpload}
-                      image="../static/images/ProfilePhotoUpload.png"
-                    />
+                    <motion.div
+                      layout
+                      onClick={() =>
+                        setSelectedImg(
+                          "../static/images/ProfilePhotoUpload.png"
+                        )
+                      }
+                    >
+                      <motion.img
+                        className={classes.profilePhotoUpload}
+                        src="../static/images/ProfilePhotoUpload.png"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1 }}
+                      />
+                    </motion.div>
                   </Grid>
                   <Grid item align="center" xs={5}>
-                    <CardMedia
-                      className={classes.profilePhotoUpload}
-                      image="../static/images/ProfilePhotoUpload.png"
-                    />
+                    <motion.div
+                      layout
+                      onClick={() =>
+                        setSelectedImg(
+                          "../static/images/ProfilePhotoUpload.png"
+                        )
+                      }
+                    >
+                      <motion.img
+                        className={classes.profilePhotoUpload}
+                        src="../static/images/ProfilePhotoUpload.png"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1 }}
+                      />
+                    </motion.div>
                   </Grid>
                   <Grid item align="center" xs={5}>
-                    <CardMedia
-                      className={classes.profilePhotoUpload}
-                      image="../static/images/ProfilePhotoUpload.png"
-                    />
+                    <motion.div
+                      layout
+                      onClick={() =>
+                        setSelectedImg(
+                          "../static/images/ProfilePhotoUpload.png"
+                        )
+                      }
+                    >
+                      <motion.img
+                        className={classes.profilePhotoUpload}
+                        src="../static/images/ProfilePhotoUpload.png"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1 }}
+                      />
+                    </motion.div>
                   </Grid>
                 </Grid>
               </Paper>
@@ -273,6 +324,9 @@ export default function Profile() {
               </Grid>
             </Paper>
           </Grid>
+          {selectedImg && (
+            <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+          )}
         </Grid>
 
         <Grid
