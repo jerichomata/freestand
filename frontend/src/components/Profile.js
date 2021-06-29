@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#303236",
     color: "#828282",
     marginTop: "10%",
+    borderRadius: 10,
   },
   media: {
     height: "50px",
@@ -54,19 +55,19 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
   },
   profileHeader: {
-    width: "688px",
-    height: "262px",
+
+    width: "100%",
   },
   profilePic: {
-    width: "125px",
-    height: "125px",
+    width: "100%",
+    border: "solid white 4px",
+    borderRadius: "50%",
+    
   },
   profilePicPaper: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "138px",
-    height: "138px",
     borderRadius: "50%",
     marginTop: "-10%",
   },
@@ -75,8 +76,21 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "18px",
   },
   profilePhotoUpload: {
-    width: "125px",
-    height: "80px",
+    width: "158px",
+    height: "136px",
+  },
+  contactBtn: {
+    backgroundColor: "#C4C4C4",
+    borderRadius: "10px",
+    color: "black",
+    fontWeight: 600,
+  },
+  tagsBtn: {
+    backgroundColor: "#606060",
+    color: "white",
+    borderRadius: 20,
+    fontWeight: 600,
+    fontSize: 16,
   },
 }));
 
@@ -95,37 +109,51 @@ export default function Profile() {
           direction="column"
           alignItems="center"
         >
-          <Typography className={classes.profileName}>
-            Sweat with Hannah
-          </Typography>
-          <Typography className={classes.profileDesc}>
-            Virtual fitness / dance classes for all ages and levels
-          </Typography>
-          <Grid item>
-            <CardMedia
-              className={classes.profileHeader}
-              image="../static/images/ProfileHeaderBig.png"
-            />
-            <Paper className={classes.profilePicPaper}>
-              <CardMedia
-                className={classes.profilePic}
-                image="../static/images/ProfilePicBig.png"
-              />
-            </Paper>
+          <Grid item container justify="center" alignItems="center">
+            <Grid item xs={8} md={5} container direction="column">
+              <Grid item>
+                <Typography className={classes.profileName}>
+                  Sweat with Hannah
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography className={classes.profileDesc}>
+                  Virtual fitness / dance classes for all ages and levels
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={2}>
+              <Button className={classes.contactBtn}>Contact</Button>
+            </Grid>
           </Grid>
+
+          <Grid item xs={12}>
+            <img
+              src="../static/images/ProfileHeaderBig.png"
+              className={classes.profileHeader}
+            />
+          </Grid>
+          <Grid item container md={9} style={{marginTop: "-10%"}}>
+            <Grid item xs={2} style={{}}>
+              <img
+                className={classes.profilePic}
+                src="../static/images/ProfilePicBig.png"
+              />
+            </Grid>
+          </Grid>
+
           <Grid
             item
+            md={8}
+            lg={8}
             container
             direction="row"
-            justify="center"
+            justify="space-between"
             spacing={0}
             alignItems="center"
           >
-            <Grid item xs={12} md={4} align="center">
-              <Paper
-                className={classes.paperClass}
-                style={{ height: "150px", width: "250px" }}
-              >
+            <Grid item xs={12} sm={6} md={5} align="center">
+              <Paper className={classes.paperClass} style={{}}>
                 <Grid container spacing={1}>
                   <Grid item xs={12}>
                     <Typography style={{ fontWeight: 600, fontSize: "16px" }}>
@@ -199,98 +227,50 @@ export default function Profile() {
               </Paper>
             </Grid>
 
-            <Grid item xs={12} md={4} align="center">
-              <Paper
-                className={classes.paperClass}
-                style={{ width: "290px", height: "225px" }}
-              >
-                <Grid container spacing={2} direction="row" justify="center">
+            <Grid item xs={12} sm={5} md={5}>
+              <Paper className={classes.paperClass}>
+                <Grid container spacing={1}>
                   <Grid item xs={12}>
-                    <Typography style={{ fontWeight: 600, fontSize: "16px" }}>
-                      Photos
+                    <Typography
+                      style={{ fontWeight: 500, fontSize: "16.96px" }}
+                    >
+                      Links
                     </Typography>
                   </Grid>
-                  <Grid item align="center" xs={5}>
-                    <motion.div
-                      layout
-                      onClick={() =>
-                        setSelectedImg(
-                          "../static/images/ProfilePhotoUpload.png"
-                        )
-                      }
-                    >
-                      <motion.img
-                        className={classes.profilePhotoUpload}
-                        src="../static/images/ProfilePhotoUpload.png"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1 }}
-                      />
-                    </motion.div>
+                  <Grid item>
+                    <Button variant="outlined" color="secondary">
+                      My Website
+                    </Button>
                   </Grid>
-                  <Grid item align="center" xs={5}>
-                    <motion.div
-                      layout
-                      onClick={() =>
-                        setSelectedImg(
-                          "../static/images/ProfilePhotoUpload.png"
-                        )
-                      }
-                    >
-                      <motion.img
-                        className={classes.profilePhotoUpload}
-                        src="../static/images/ProfilePhotoUpload.png"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1 }}
-                      />
-                    </motion.div>
+                  <Grid item>
+                    <Button variant="outlined" color="secondary">
+                      Instagram
+                    </Button>
                   </Grid>
-                  <Grid item align="center" xs={5}>
-                    <motion.div
-                      layout
-                      onClick={() =>
-                        setSelectedImg(
-                          "../static/images/ProfilePhotoUpload.png"
-                        )
-                      }
-                    >
-                      <motion.img
-                        className={classes.profilePhotoUpload}
-                        src="../static/images/ProfilePhotoUpload.png"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1 }}
-                      />
-                    </motion.div>
+                  <Grid item>
+                    <Button variant="outlined" color="secondary">
+                      Live Classes
+                    </Button>
                   </Grid>
-                  <Grid item align="center" xs={5}>
-                    <motion.div
-                      layout
-                      onClick={() =>
-                        setSelectedImg(
-                          "../static/images/ProfilePhotoUpload.png"
-                        )
-                      }
-                    >
-                      <motion.img
-                        className={classes.profilePhotoUpload}
-                        src="../static/images/ProfilePhotoUpload.png"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1 }}
-                      />
-                    </motion.div>
+                  <Grid item>
+                    <Button variant="outlined" color="secondary">
+                      YouTube
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="outlined" color="secondary">
+                      My Udemy Course
+                    </Button>
                   </Grid>
                 </Grid>
               </Paper>
             </Grid>
           </Grid>
 
-          <Grid item>
+          <Grid item xs={12} md={8}>
             <Paper
               className={classes.paperClass}
-              style={{ marginTop: "5%", width: "688px", height: "286px" }}
+              style={{ marginTop: "5%", marginBottom: "5%" }}
             >
               <Grid
                 container
@@ -336,7 +316,6 @@ export default function Profile() {
           lg={4}
           direction="column"
           alignItems="center"
-          justify="center"
         >
           <Grid item container direction="row" justify="space-evenly">
             <Button
@@ -355,42 +334,99 @@ export default function Profile() {
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <Typography style={{ fontWeight: 500, fontSize: "18px" }}>
-                    Similiar Creators
+                    Categories and Tags
                   </Typography>
                 </Grid>
-                <SimilarCreator />
-                <SimilarCreator />
-                <SimilarCreator />
+                <Grid item container direction="row">
+                  <Grid item>
+                    <Button className={classes.tagsBtn}>
+                      Fitness {"&"} Exercise
+                    </Button>
+                  </Grid>
+                </Grid>
               </Grid>
             </Paper>
           </Grid>
+
           <Grid item>
-            <Paper className={classes.paperClass} style={{}}>
-              <Grid container spacing={2}>
+            <Paper
+              className={classes.paperClass}
+              style={{ width: "398px", height: 334 }}
+            >
+              <Grid
+                container
+                spacing={1}
+                direction="row"
+                justify="space-evenly"
+              >
                 <Grid item xs={12}>
-                  <Typography style={{ fontWeight: 500, fontSize: "16.96px" }}>
-                    Links
+                  <Typography style={{ fontWeight: 600, fontSize: "16px" }}>
+                    Gallery
                   </Typography>
                 </Grid>
-                <Grid item xs={12} align="center">
-                  <Button className={classes.linkButtons} variant="outlined">
-                    Website
-                  </Button>
+                <Grid item>
+                  <motion.div
+                    layout
+                    onClick={() =>
+                      setSelectedImg("../static/images/ProfilePhotoUpload.png")
+                    }
+                  >
+                    <motion.img
+                      className={classes.profilePhotoUpload}
+                      src="../static/images/ProfilePhotoUpload.png"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1 }}
+                    />
+                  </motion.div>
                 </Grid>
-                <Grid item xs={12} align="center">
-                  <Button className={classes.linkButtons} variant="outlined">
-                    Instagram
-                  </Button>
+                <Grid item>
+                  <motion.div
+                    layout
+                    onClick={() =>
+                      setSelectedImg("../static/images/ProfilePhotoUpload.png")
+                    }
+                  >
+                    <motion.img
+                      className={classes.profilePhotoUpload}
+                      src="../static/images/ProfilePhotoUpload.png"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1 }}
+                    />
+                  </motion.div>
                 </Grid>
-                <Grid item xs={12} align="center">
-                  <Button className={classes.linkButtons} variant="outlined">
-                    Twitter
-                  </Button>
+                <Grid item>
+                  <motion.div
+                    layout
+                    onClick={() =>
+                      setSelectedImg("../static/images/ProfilePhotoUpload.png")
+                    }
+                  >
+                    <motion.img
+                      className={classes.profilePhotoUpload}
+                      src="../static/images/ProfilePhotoUpload.png"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1 }}
+                    />
+                  </motion.div>
                 </Grid>
-                <Grid item xs={12} align="center">
-                  <Button className={classes.linkButtons} variant="outlined">
-                    YouTube
-                  </Button>
+                <Grid item>
+                  <motion.div
+                    layout
+                    onClick={() =>
+                      setSelectedImg("../static/images/ProfilePhotoUpload.png")
+                    }
+                  >
+                    <motion.img
+                      className={classes.profilePhotoUpload}
+                      src="../static/images/ProfilePhotoUpload.png"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1 }}
+                    />
+                  </motion.div>
                 </Grid>
               </Grid>
             </Paper>
