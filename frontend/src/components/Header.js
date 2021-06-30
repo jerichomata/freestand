@@ -38,11 +38,11 @@ const useStyles = makeStyles((theme) => ({
   button: {
     borderRadius: "25px",
     width: "100%",
-    border: "2px solid #FFFFFF",
     fontWeight: 400,
     fontSize: 30,
     textTransform: "none",
     lineHeight: "48px",
+    backgroundColor: "#8E9AFF",
   },
 }));
 

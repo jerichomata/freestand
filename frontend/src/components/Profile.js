@@ -55,14 +55,12 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
   },
   profileHeader: {
-
     width: "100%",
   },
   profilePic: {
     width: "100%",
     border: "solid white 4px",
     borderRadius: "50%",
-    
   },
   profilePicPaper: {
     display: "flex",
@@ -133,7 +131,7 @@ export default function Profile() {
               className={classes.profileHeader}
             />
           </Grid>
-          <Grid item container md={9} style={{marginTop: "-10%"}}>
+          <Grid item container md={9} style={{ marginTop: "-10%" }}>
             <Grid item xs={2} style={{}}>
               <img
                 className={classes.profilePic}
