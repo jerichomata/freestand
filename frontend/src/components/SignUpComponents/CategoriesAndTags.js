@@ -42,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "22.64px",
     textTransform: "none",
     border: "0.754629px solid #FFFFFF",
-    height: 63,
-    lineHeight: 2.5,
+    height: 50,
+    lineHeight: 2.2,
     padding: 20,
     "&:hover": {
       color: "black",
