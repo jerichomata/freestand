@@ -25,26 +25,27 @@ const Routes = () => {
           <Route exact path="/logout" component={Logout} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/verify-email" component={EmailVerification} />
-          <Route exact path="/categories-and-tags" component={CategoriesAndTags} />
-          <Route exact path="/titles-and-description" component={TitlesAndDesc} />
-          <Route exact path="/basic-info" component={BasicInfo} />          
-          <Route exact path="/links" component={Links} />       
-          <Route exact path="/photos-and-videos" component={PhotosAndVideos} /> 
+          <Route
+            exact
+            path="/categories-and-tags"
+            component={CategoriesAndTags}
+          />
+          <Route
+            exact
+            path="/titles-and-description"
+            component={TitlesAndDesc}
+          />
+          <Route exact path="/basic-info" component={BasicInfo} />
+          <Route exact path="/links" component={Links} />
+          <Route exact path="/photos-and-videos" component={PhotosAndVideos} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route
             path="/fitness-and-exercise"
             render={(props) => <ListingsPage {...props} category={"Fitness"} />}
           ></Route>
+
           <Route
-            path="/dance"
-            render={(props) => <ListingsPage {...props} category={"Dance"} />}
-          ></Route>
-          <Route
-            path="/yoga"
-            render={(props) => <ListingsPage {...props} category={"Yoga"} />}
-          ></Route>
-          <Route
-            path="/meditation"
+            path="/meditation-mindfulness-spirituality"
             render={(props) => (
               <ListingsPage {...props} category={"Meditation"} />
             )}
@@ -54,18 +55,10 @@ const Routes = () => {
             render={(props) => <ListingsPage {...props} category={"Cooking"} />}
           ></Route>
           <Route
-            path="/nutritionist"
+            path="/nutrition-and-dieting"
             render={(props) => (
               <ListingsPage {...props} category={"Nutritionist"} />
             )}
-          ></Route>
-          <Route
-            path="/therapy"
-            render={(props) => <ListingsPage {...props} category={"Therapy"} />}
-          ></Route>
-          <Route
-            path="/pilates"
-            render={(props) => <ListingsPage {...props} category={"Pilates"} />}
           ></Route>
           <Route path="/profile" component={ProfilePage} />
         </Switch>

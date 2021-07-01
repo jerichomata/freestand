@@ -58,7 +58,7 @@ export default function FeaturedCategories() {
           </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Link to="/nutritionist">
+          <Link to="/nutrition-and-dieting">
             <CategoryCard
               title="Nutritionist"
               image="../static/images/Nutritionist.png"
@@ -74,7 +74,7 @@ export default function FeaturedCategories() {
           </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Link to="/meditation">
+          <Link to="/meditation-mindfulness-spirituality">
             <CategoryCard
               title="Meditation"
               image="../static/images/Meditation.png"

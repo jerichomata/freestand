@@ -30,22 +30,22 @@ export default function ListingsCategoriesBar() {
         justify="space-evenly"
       >
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/cooking">
+          <Button className={classes.buttons} component={Link} to="/fitness-and-exercise">
             Fitness & Exercise
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/meditation">
+          <Button className={classes.buttons} component={Link} to="/meditation-mindfulness-spirituality">
             Meditation, Mindfulness, & Spirituality
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/fitness">
+          <Button className={classes.buttons} component={Link} to="/nutrition-and-dieting">
             Nutrition & Dieting
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/therapy">
+          <Button className={classes.buttons} component={Link} to="/cooking">
             Cooking
           </Button>
         </Grid>
