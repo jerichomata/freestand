@@ -74,18 +74,24 @@ export default function TitlesAndDesc() {
   const classes = useStyles();
   const [selected, setSelected] = useState(0);
   const handleTagClick = (event) => {
-    
+
     if (event.target.className == "MuiButton-label") {
       if (event.target.style.backgroundColor == "white") {
         event.target.parentNode.style.backgroundColor = "#303236";
         event.target.parentNode.style.color = "white";
         event.target.style.backgroundColor = "#303236";
         event.target.style.color = "white";
+        setSelected(selected-1)
       } else {
+        if (selected >= 10) {
+          alert("You can only choose 10")
+          return
+        }
         event.target.parentNode.style.backgroundColor = "white";
         event.target.parentNode.style.color = "black";
         event.target.style.backgroundColor = "white";
         event.target.style.color = "black";
+        setSelected(selected+1)
       }
     } else {
       if (event.target.style.backgroundColor == "white") {
@@ -93,11 +99,17 @@ export default function TitlesAndDesc() {
         event.target.style.color = "white";
         event.target.firstChild.style.backgroundColor = "#303236";
         event.target.firstChild.style.color = "white";
+        setSelected(selected-1)
       } else {
+        if (selected >= 10) {
+          alert("You can only choose 10")
+          return
+        }
         event.target.style.backgroundColor = "white";
         event.target.style.color = "black";
         event.target.firstChild.style.backgroundColor = "white";
         event.target.firstChild.style.color = "black";
+        setSelected(selected+1)
       }
     }
   };
