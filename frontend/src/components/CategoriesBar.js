@@ -35,27 +35,27 @@ export default function CategoriesBar() {
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/meditation">
+          <Button className={classes.buttons} component={Link} to="/meditation-mindfulness-spirituality">
             Meditation
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/fitness">
+          <Button className={classes.buttons} component={Link} to="/fitness-and-exercise">
             Fitness
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/therapy">
+          <Button className={classes.buttons} component={Link} to="/meditation-mindfulness-spirituality">
             Therapy
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/dance">
+          <Button className={classes.buttons} component={Link} to="/fitness-and-exercise">
             Dance
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/yoga">
+          <Button className={classes.buttons} component={Link} to="/fitness-and-exercise">
             Yoga
           </Button>
         </Grid>
@@ -63,13 +63,13 @@ export default function CategoriesBar() {
           <Button
             className={classes.buttons}
             component={Link}
-            to="/nutritionist"
+            to="/nutrition-and-dieting"
           >
             Nutrition
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.buttons} component={Link} to="/pilates">
+          <Button className={classes.buttons} component={Link} to="/fitness-and-exercise">
             Pilates
           </Button>
         </Grid>
