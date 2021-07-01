@@ -24,20 +24,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CategoryProfiles(props) {
   const classes = useStyles();
-  const [gender, setGender] = useState("no-preference");
   const [offering, setOffering] = useState("no-preference");
-  const [age, setAge] = useState("no-preference");
-  const handleGender = (event) => {
-    setGender(event.target.value);
-  };
-
+  const [category, setCategory] = useState("no-preference");
   const handleOffering = (event) => {
     setOffering(event.target.value);
   };
-
-  const handleAge = (event) => {
-    setAge(event.target.value);
+  const handleCategory = (event) => {
+    setCategory(event.target.value);
   };
+
   return (
     <Fragment>
       <Grid
@@ -47,45 +42,6 @@ export default function CategoryProfiles(props) {
         justify="space-between"
       >
         <Grid item xs={2} container direction="column">
-          <Grid
-            item
-            xs={12}
-            container
-            direction="column"
-            className={classes.filterGrid}
-          >
-            <Grid item xs={12}>
-              <Typography className={classes.filterTitle} align="center">
-                Gender
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <FormControl component="fieldset">
-                <RadioGroup
-                  aria-label="gender"
-                  name="gender1"
-                  value={gender}
-                  onChange={handleGender}
-                >
-                  <FormControlLabel
-                    value="no-preference"
-                    control={<Radio />}
-                    label="No Preference"
-                  />
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="Female"
-                  />
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    label="Male"
-                  />
-                </RadioGroup>
-              </FormControl>
-            </Grid>
-          </Grid>
           <Grid
             item
             xs={12}
@@ -141,6 +97,7 @@ export default function CategoryProfiles(props) {
               </FormControl>
             </Grid>
           </Grid>
+
           <Grid
             item
             xs={12}
@@ -151,16 +108,16 @@ export default function CategoryProfiles(props) {
           >
             <Grid item xs={12}>
               <Typography className={classes.filterTitle} align="center">
-                Age
+                Categories
               </Typography>
             </Grid>
             <Grid item xs={12}>
               <FormControl component="fieldset">
                 <RadioGroup
-                  aria-label="age"
-                  name="age"
-                  value={age}
-                  onChange={handleAge}
+                  aria-label="category"
+                  name="category"
+                  value={category}
+                  onChange={handleCategory}
                 >
                   <FormControlLabel
                     value="no-preference"
@@ -168,29 +125,44 @@ export default function CategoryProfiles(props) {
                     label="No Preference"
                   />
                   <FormControlLabel
-                    value="younger-than-18"
+                    value="yoga"
                     control={<Radio />}
-                    label="Younger than 18"
+                    label="Yoga"
                   />
                   <FormControlLabel
-                    value="18-30"
+                    value="pilates"
                     control={<Radio />}
-                    label="18-30"
+                    label="Pilates"
                   />
                   <FormControlLabel
-                    value="31-40"
+                    value="hiit"
                     control={<Radio />}
-                    label="31-40"
+                    label="HIIT"
                   />
                   <FormControlLabel
-                    value="41-50"
+                    value="dance"
                     control={<Radio />}
-                    label="41-50"
+                    label="Dance"
                   />
                   <FormControlLabel
-                    value="50+"
+                    value="cardio"
                     control={<Radio />}
-                    label="50+"
+                    label="Cardio"
+                  />
+                  <FormControlLabel
+                    value="strength"
+                    control={<Radio />}
+                    label="Strength"
+                  />
+                  <FormControlLabel
+                    value="circuit-training"
+                    control={<Radio />}
+                    label="Circuit Training"
+                  />
+                  <FormControlLabel
+                    value="barre"
+                    control={<Radio />}
+                    label="Barre"
                   />
                 </RadioGroup>
               </FormControl>
