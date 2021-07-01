@@ -52,26 +52,10 @@ export default function FeaturedCategories() {
           </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Link to="/dance">
+          <Link to="/nutritionist">
             <CategoryCard
-              title="Dance"
-              image="../static/images/Dance.png"
-            ></CategoryCard>
-          </Link>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Link to="/yoga">
-            <CategoryCard
-              title="Yoga"
-              image="../static/images/Yoga.png"
-            ></CategoryCard>
-          </Link>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Link to="/meditation">
-            <CategoryCard
-              title="Meditation"
-              image="../static/images/Meditation.png"
+              title="Nutritionist"
+              image="../static/images/Nutritionist.png"
             ></CategoryCard>
           </Link>
         </Grid>
@@ -84,26 +68,10 @@ export default function FeaturedCategories() {
           </Link>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Link to="/nutritionist">
+          <Link to="/meditation">
             <CategoryCard
-              title="Nutritionist"
-              image="../static/images/Nutritionist.png"
-            ></CategoryCard>
-          </Link>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Link to="/therapy">
-            <CategoryCard
-              title="Therapy"
-              image="../static/images/Therapy.png"
-            ></CategoryCard>
-          </Link>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Link to="/pilates">
-            <CategoryCard
-              title="Pilates"
-              image="../static/images/Pilates.png"
+              title="Meditation"
+              image="../static/images/Meditation.png"
             ></CategoryCard>
           </Link>
         </Grid>
