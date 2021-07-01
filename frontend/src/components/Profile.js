@@ -17,6 +17,7 @@ import BookmarksIcon from "@material-ui/icons/Bookmarks";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import Modal from "./Modal";
 import { motion } from "framer-motion";
+import {db} from "../firebase"
 const useStyles = makeStyles((theme) => ({
   root: {},
   profileName: {
@@ -95,7 +96,21 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile() {
   const classes = useStyles();
   const [selectedImg, setSelectedImg] = useState(null);
+  const [data,setData] = useState("")
 
+  //const db = firebase.firestore()
+  const textRef = db.collection("BusinessTitleInfo");
+
+  //replace later with unique ID
+  //aka use "where()"
+  textRef.doc('oRhXNmTyAuNQ1XcP9QOA').get()
+  .then( (doc) => {
+    //console.log(doc);
+    setData(doc.data());
+  })
+  .catch(error => console.log(error));
+  
+  
   return (
     <Fragment>
       <Grid container direction="row">
@@ -111,12 +126,12 @@ export default function Profile() {
             <Grid item xs={8} md={5} container direction="column">
               <Grid item>
                 <Typography className={classes.profileName}>
-                  Sweat with Hannah
+                  {data.Title}
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography className={classes.profileDesc}>
-                  Virtual fitness / dance classes for all ages and levels
+                  {data.SubTitle}
                 </Typography>
               </Grid>
             </Grid>
@@ -175,7 +190,7 @@ export default function Profile() {
                     >
                       <Typography>Based in</Typography>
                       <Typography style={{ color: "white", marginLeft: "2%" }}>
-                        Los Angeles
+                        {data.Location}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -196,7 +211,7 @@ export default function Profile() {
                     >
                       <Typography>Speaks</Typography>
                       <Typography style={{ color: "white", marginLeft: "2%" }}>
-                        English
+                        {data.Language}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -287,16 +302,7 @@ export default function Profile() {
                       color: "#EFEFEF",
                     }}
                   >
-                    I’m a group fitness instructor and personal trainer in Los
-                    Angeles. Sweat with Hannah came to fruition as a need for
-                    exercise, a sense of community, and positivity during the
-                    pandemic. In a time of uncertainty, I was able to connect
-                    with so many women, taking 45 minutes out of the day to
-                    focus on nothing but the workout.If you’re looking for a
-                    successful burn in the comfort of your own home, look no
-                    further. Taking 45 minutes out of the day to focus on
-                    nothing but the workout.If you’re looking for a successful
-                    burn in the comfort of your own home, look no further.{" "}
+                  {data.About}
                   </Typography>
                 </Grid>
               </Grid>
