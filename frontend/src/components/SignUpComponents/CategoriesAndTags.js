@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useRef } from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -74,12 +74,31 @@ export default function TitlesAndDesc() {
   const classes = useStyles();
   const [selected, setSelected] = useState(0);
   const handleTagClick = (event) => {
-    if (event.target.style.backgroundColor == "white") {
-      event.target.style.backgroundColor = "#303236";
-      event.target.style.color = "white";
+    
+    if (event.target.className == "MuiButton-label") {
+      if (event.target.style.backgroundColor == "white") {
+        event.target.parentNode.style.backgroundColor = "#303236";
+        event.target.parentNode.style.color = "white";
+        event.target.style.backgroundColor = "#303236";
+        event.target.style.color = "white";
+      } else {
+        event.target.parentNode.style.backgroundColor = "white";
+        event.target.parentNode.style.color = "black";
+        event.target.style.backgroundColor = "white";
+        event.target.style.color = "black";
+      }
     } else {
-      event.target.style.backgroundColor = "white";
-      event.target.style.color = "black";
+      if (event.target.style.backgroundColor == "white") {
+        event.target.style.backgroundColor = "#303236";
+        event.target.style.color = "white";
+        event.target.firstChild.style.backgroundColor = "#303236";
+        event.target.firstChild.style.color = "white";
+      } else {
+        event.target.style.backgroundColor = "white";
+        event.target.style.color = "black";
+        event.target.firstChild.style.backgroundColor = "white";
+        event.target.firstChild.style.color = "black";
+      }
     }
   };
 
@@ -118,6 +137,7 @@ export default function TitlesAndDesc() {
               className={classes.offeringBtn}
               variant="outlined"
               color="secondary"
+              onClick={handleTagClick}
             >
               1 on 1 Sessions
             </Button>
@@ -125,6 +145,7 @@ export default function TitlesAndDesc() {
               className={classes.offeringBtn}
               variant="outlined"
               color="secondary"
+              onClick={handleTagClick}
             >
               On Demand Content
             </Button>
@@ -132,6 +153,7 @@ export default function TitlesAndDesc() {
               className={classes.offeringBtn}
               variant="outlined"
               color="secondary"
+              onClick={handleTagClick}
             >
               Webinars
             </Button>
@@ -139,6 +161,7 @@ export default function TitlesAndDesc() {
               className={classes.offeringBtn}
               variant="outlined"
               color="secondary"
+              onClick={handleTagClick}
             >
               Courses
             </Button>
@@ -146,6 +169,7 @@ export default function TitlesAndDesc() {
               className={classes.offeringBtn}
               variant="outlined"
               color="secondary"
+              onClick={handleTagClick}
             >
               Private Community
             </Button>
@@ -175,6 +199,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Pilates
                 </Button>
@@ -182,6 +207,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   HIT
                 </Button>
@@ -189,6 +215,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Dance
                 </Button>
@@ -196,6 +223,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Barre
                 </Button>
@@ -203,6 +231,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Mobility
                 </Button>
@@ -210,6 +239,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Cardio
                 </Button>
@@ -217,6 +247,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Strength
                 </Button>
@@ -224,6 +255,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Circuit Training
                 </Button>
@@ -231,6 +263,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Flexibility
                 </Button>
@@ -238,6 +271,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Muscle Building
                 </Button>
@@ -245,6 +279,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Weight Loss
                 </Button>
@@ -260,11 +295,13 @@ export default function TitlesAndDesc() {
                 nodeId="1"
                 label="Meditation & Spiritual Teachers"
                 className={classes.Btn}
+                
               >
                 <Button
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Meditation
                 </Button>
@@ -272,6 +309,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Mindfulness
                 </Button>
@@ -279,6 +317,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Spirituality
                 </Button>
@@ -286,6 +325,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Qi-gong
                 </Button>
@@ -293,6 +333,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Energy Healing
                 </Button>
@@ -300,6 +341,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Sound Therapy
                 </Button>
@@ -307,6 +349,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Enlightenment
                 </Button>
@@ -314,6 +357,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Reiki
                 </Button>
@@ -321,6 +365,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Chakra
                 </Button>
@@ -328,6 +373,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Stress Management
                 </Button>
@@ -335,6 +381,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Relaxation
                 </Button>
@@ -351,6 +398,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Yoga
                 </Button>
@@ -358,6 +406,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Pilates
                 </Button>
@@ -365,6 +414,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   HIT
                 </Button>
@@ -372,6 +422,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Dance
                 </Button>
@@ -379,6 +430,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Barre
                 </Button>
@@ -386,6 +438,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Mobility
                 </Button>
@@ -393,6 +446,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Cardio
                 </Button>
@@ -400,6 +454,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Strength
                 </Button>
@@ -407,6 +462,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Circuit Training
                 </Button>
@@ -414,6 +470,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Flexibility
                 </Button>
@@ -421,6 +478,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Muscle Building
                 </Button>
@@ -428,6 +486,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Weight Loss
                 </Button>
@@ -444,6 +503,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Yoga
                 </Button>
@@ -451,6 +511,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Pilates
                 </Button>
@@ -458,6 +519,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   HIT
                 </Button>
@@ -465,6 +527,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Dance
                 </Button>
@@ -472,6 +535,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Barre
                 </Button>
@@ -479,6 +543,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Mobility
                 </Button>
@@ -486,6 +551,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Cardio
                 </Button>
@@ -493,6 +559,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Strength
                 </Button>
@@ -500,6 +567,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Circuit Training
                 </Button>
@@ -507,6 +575,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Flexibility
                 </Button>
@@ -514,6 +583,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Muscle Building
                 </Button>
@@ -521,6 +591,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Weight Loss
                 </Button>
@@ -541,6 +612,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Yoga
                 </Button>
@@ -548,6 +620,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Pilates
                 </Button>
@@ -555,6 +628,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   HIT
                 </Button>
@@ -562,6 +636,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Dance
                 </Button>
@@ -569,6 +644,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Barre
                 </Button>
@@ -576,6 +652,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Mobility
                 </Button>
@@ -583,6 +660,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Cardio
                 </Button>
@@ -590,6 +668,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Strength
                 </Button>
@@ -597,6 +676,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Circuit Training
                 </Button>
@@ -604,6 +684,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Flexibility
                 </Button>
@@ -611,6 +692,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Muscle Building
                 </Button>
@@ -618,6 +700,7 @@ export default function TitlesAndDesc() {
                   className={classes.tagsBtn}
                   variant="outlined"
                   color="secondary"
+                  onClick={handleTagClick}
                 >
                   Weight Loss
                 </Button>
