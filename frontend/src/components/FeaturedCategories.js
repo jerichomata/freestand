@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import CategoryCard from "./CategoryCard";
-//import Link from "@material-ui/core/Link";
+import { Link as LinkReact, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -41,10 +41,16 @@ export default function FeaturedCategories() {
           </Typography>
         </Grid>
         <Grid item xs={6} sm={2} align="center">
-          <Button className={classes.seeAllButton}>See all</Button>
+          <Button
+            className={classes.seeAllButton}
+            component={LinkReact}
+            to="/fitness-and-exercise"
+          >
+            See all
+          </Button>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Link to="/fitness">
+          <Link to="/fitness-and-exercise">
             <CategoryCard
               title="Fitness"
               image="../static/images/Fitness.png"

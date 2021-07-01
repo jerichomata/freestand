@@ -32,7 +32,7 @@ const Routes = () => {
           <Route exact path="/photos-and-videos" component={PhotosAndVideos} /> 
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route
-            path="/fitness"
+            path="/fitness-and-exercise"
             render={(props) => <ListingsPage {...props} category={"Fitness"} />}
           ></Route>
           <Route
