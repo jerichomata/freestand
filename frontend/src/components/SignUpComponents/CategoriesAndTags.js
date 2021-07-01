@@ -36,16 +36,19 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#FF5924",
     },
   },
-  Btn: {
+  typeLabel: {
     borderRadius: "7.55px",
     fontWeight: 400,
     fontSize: "22.64px",
     textTransform: "none",
     border: "0.754629px solid #FFFFFF",
-    // "&:hover": {
-    //   color: "black",
-    //   backgroundColor: "white",
-    // },
+    height: 63,
+    lineHeight: 2.5,
+    padding: 20,
+    "&:hover": {
+      color: "black",
+      backgroundColor: "white",
+    },
   },
   tagsBtn: {
     fontWeight: 400,
@@ -74,24 +77,23 @@ export default function TitlesAndDesc() {
   const classes = useStyles();
   const [selected, setSelected] = useState(0);
   const handleTagClick = (event) => {
-
     if (event.target.className == "MuiButton-label") {
       if (event.target.style.backgroundColor == "white") {
         event.target.parentNode.style.backgroundColor = "#303236";
         event.target.parentNode.style.color = "white";
         event.target.style.backgroundColor = "#303236";
         event.target.style.color = "white";
-        setSelected(selected-1)
+        setSelected(selected - 1);
       } else {
         if (selected >= 10) {
-          alert("You can only choose 10")
-          return
+          alert("You can only choose 10");
+          return;
         }
         event.target.parentNode.style.backgroundColor = "white";
         event.target.parentNode.style.color = "black";
         event.target.style.backgroundColor = "white";
         event.target.style.color = "black";
-        setSelected(selected+1)
+        setSelected(selected + 1);
       }
     } else {
       if (event.target.style.backgroundColor == "white") {
@@ -99,18 +101,28 @@ export default function TitlesAndDesc() {
         event.target.style.color = "white";
         event.target.firstChild.style.backgroundColor = "#303236";
         event.target.firstChild.style.color = "white";
-        setSelected(selected-1)
+        setSelected(selected - 1);
       } else {
         if (selected >= 10) {
-          alert("You can only choose 10")
-          return
+          alert("You can only choose 10");
+          return;
         }
         event.target.style.backgroundColor = "white";
         event.target.style.color = "black";
         event.target.firstChild.style.backgroundColor = "white";
         event.target.firstChild.style.color = "black";
-        setSelected(selected+1)
+        setSelected(selected + 1);
       }
+    }
+  };
+
+  const handleTypeClick = (event) => {
+    if (event.target.style.backgroundColor == "white") {
+      event.target.style.backgroundColor = "#303236";
+      event.target.style.color = "white";
+    } else {
+      event.target.style.backgroundColor = "white";
+      event.target.style.color = "black";
     }
   };
 
@@ -189,15 +201,22 @@ export default function TitlesAndDesc() {
           <Grid item xs={12}>
             <Typography>Type</Typography>
           </Grid>
-          <Grid item md={10}>
+          <Grid item md={9}>
             <TreeView
               defaultCollapseIcon={<ExpandMoreIcon />}
               defaultExpandIcon={<ChevronRightIcon />}
             >
               <TreeItem
                 nodeId="1"
-                label="Fitness Instructors"
-                className={classes.Btn}
+                label={
+                  <Typography
+                    className={classes.typeLabel}
+                    style={{ marginTop: "2%" }}
+                    onClick={handleTypeClick}
+                  >
+                    Fitness Instructors
+                  </Typography>
+                }
               >
                 <Button
                   className={classes.tagsBtn}
@@ -298,16 +317,18 @@ export default function TitlesAndDesc() {
               </TreeItem>
             </TreeView>
           </Grid>
-          <Grid item md={10} style={{ marginTop: "3%" }}>
+          <Grid item md={9} style={{ marginTop: "3%" }}>
             <TreeView
               defaultCollapseIcon={<ExpandMoreIcon />}
               defaultExpandIcon={<ChevronRightIcon />}
             >
               <TreeItem
                 nodeId="1"
-                label="Meditation & Spiritual Teachers"
-                className={classes.Btn}
-                
+                label={
+                  <Typography className={classes.typeLabel} onClick={handleTypeClick}>
+                    Meditation & Spiritual Teachers
+                  </Typography>
+                }
               >
                 <Button
                   className={classes.tagsBtn}
@@ -400,225 +421,242 @@ export default function TitlesAndDesc() {
               </TreeItem>
             </TreeView>
           </Grid>
-          <Grid item md={10} style={{ marginTop: "3%" }}>
-            <TreeView
-              defaultCollapseIcon={<ExpandMoreIcon />}
-              defaultExpandIcon={<ChevronRightIcon />}
-            >
-              <TreeItem nodeId="1" label="Life Coaches" className={classes.Btn}>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Yoga
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Pilates
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  HIT
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Dance
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Barre
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Mobility
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Cardio
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Strength
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Circuit Training
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Flexibility
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Muscle Building
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Weight Loss
-                </Button>
-              </TreeItem>
-            </TreeView>
-          </Grid>
-          <Grid item md={10} style={{ marginTop: "3%" }}>
-            <TreeView
-              defaultCollapseIcon={<ExpandMoreIcon />}
-              defaultExpandIcon={<ChevronRightIcon />}
-            >
-              <TreeItem nodeId="1" label="Nutritionist" className={classes.Btn}>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Yoga
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Pilates
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  HIT
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Dance
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Barre
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Mobility
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Cardio
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Strength
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Circuit Training
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Flexibility
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Muscle Building
-                </Button>
-                <Button
-                  className={classes.tagsBtn}
-                  variant="outlined"
-                  color="secondary"
-                  onClick={handleTagClick}
-                >
-                  Weight Loss
-                </Button>
-              </TreeItem>
-            </TreeView>
-          </Grid>
-          <Grid item md={10} style={{ marginTop: "3%" }}>
+          <Grid item md={9} style={{ marginTop: "3%" }}>
             <TreeView
               defaultCollapseIcon={<ExpandMoreIcon />}
               defaultExpandIcon={<ChevronRightIcon />}
             >
               <TreeItem
                 nodeId="1"
-                label="Chefs and Cooks"
-                className={classes.Btn}
+                label={
+                  <Typography className={classes.typeLabel} onClick={handleTypeClick}>
+                    Life Coaches
+                  </Typography>
+                }
+              >
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Yoga
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Pilates
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  HIT
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Dance
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Barre
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Mobility
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Cardio
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Strength
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Circuit Training
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Flexibility
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Muscle Building
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Weight Loss
+                </Button>
+              </TreeItem>
+            </TreeView>
+          </Grid>
+          <Grid item md={9} style={{ marginTop: "3%" }}>
+            <TreeView
+              defaultCollapseIcon={<ExpandMoreIcon />}
+              defaultExpandIcon={<ChevronRightIcon />}
+            >
+              <TreeItem
+                nodeId="1"
+                label={
+                  <Typography className={classes.typeLabel} onClick={handleTypeClick}>
+                    Nutritionist
+                  </Typography>
+                }
+              >
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Yoga
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Pilates
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  HIT
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Dance
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Barre
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Mobility
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Cardio
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Strength
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Circuit Training
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Flexibility
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Muscle Building
+                </Button>
+                <Button
+                  className={classes.tagsBtn}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleTagClick}
+                >
+                  Weight Loss
+                </Button>
+              </TreeItem>
+            </TreeView>
+          </Grid>
+          <Grid item md={9} style={{ marginTop: "3%" }}>
+            <TreeView
+              defaultCollapseIcon={<ExpandMoreIcon />}
+              defaultExpandIcon={<ChevronRightIcon />}
+            >
+              <TreeItem
+                nodeId="1"
+                label={
+                  <Typography className={classes.typeLabel} onClick={handleTypeClick}>
+                    Chefs & Cooks
+                  </Typography>
+                }
               >
                 <Button
                   className={classes.tagsBtn}
