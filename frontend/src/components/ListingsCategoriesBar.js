@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CategoriesBar() {
+export default function ListingsCategoriesBar() {
   const classes = useStyles();
   return (
     <Fragment>
@@ -27,50 +27,26 @@ export default function CategoriesBar() {
         direction="row"
         className={classes.root}
         alignItems="center"
-        justify="space-between"
+        justify="space-evenly"
       >
         <Grid item>
           <Button className={classes.buttons} component={Link} to="/cooking">
-            Cooking
+            Fitness & Exercise
           </Button>
         </Grid>
         <Grid item>
           <Button className={classes.buttons} component={Link} to="/meditation">
-            Meditation
+            Meditation, Mindfulness, & Spirituality
           </Button>
         </Grid>
         <Grid item>
           <Button className={classes.buttons} component={Link} to="/fitness">
-            Fitness
+            Nutrition & Dieting
           </Button>
         </Grid>
         <Grid item>
           <Button className={classes.buttons} component={Link} to="/therapy">
-            Therapy
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button className={classes.buttons} component={Link} to="/dance">
-            Dance
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button className={classes.buttons} component={Link} to="/yoga">
-            Yoga
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button
-            className={classes.buttons}
-            component={Link}
-            to="/nutritionist"
-          >
-            Nutrition
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button className={classes.buttons} component={Link} to="/pilates">
-            Pilates
+            Cooking
           </Button>
         </Grid>
       </Grid>

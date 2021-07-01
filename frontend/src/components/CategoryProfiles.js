@@ -38,7 +38,7 @@ export default function CategoryProfiles(props) {
       <Grid
         container
         direction="row"
-        style={{ marginTop: "10%" }}
+        style={{ marginTop: "5%" }}
         justify="space-between"
       >
         <Grid item xs={2} container direction="column">
