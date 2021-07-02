@@ -96,9 +96,10 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile() {
   const classes = useStyles();
   const [selectedImg, setSelectedImg] = useState(null);
-  const [data,setData] = useState("")
+  const [data,setData] = useState("");
+  const [links,setLinks] = useState([]);
 
-  //const db = firebase.firestore()
+  //For Gathering information about text elements such as Title, About, etc...
   const textRef = db.collection("BusinessTitleInfo");
 
   //replace later with unique ID
@@ -109,7 +110,26 @@ export default function Profile() {
     setData(doc.data());
   })
   .catch(error => console.log(error));
-  
+
+  //For gathering data about links and such
+
+  const linkRef = db.collection("BusinessLinkInfo");
+
+  //replace later with unique ID
+  //aka use "where()"
+  linkRef.where('BusinessID', '==', 'TfLWu7s91oEciBreYQMd').get()
+  .then( (snapshot) => {
+    //console.log(doc);
+    let getLinks = []
+    snapshot.forEach( doc =>{
+        const data = doc.data()
+        getLinks.push(data)
+      }
+    )
+    setLinks(getLinks)
+  })
+  .catch(error => console.log(error));
+
   
   return (
     <Fragment>
@@ -250,31 +270,17 @@ export default function Profile() {
                       Links
                     </Typography>
                   </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="secondary">
-                      My Website
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="secondary">
-                      Instagram
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="secondary">
-                      Live Classes
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="secondary">
-                      YouTube
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="secondary">
-                      My Udemy Course
-                    </Button>
-                  </Grid>
+                  {
+                    links.map((link)=>{
+                      return(
+                        <Grid item key = {link.id}>
+                          <Button href = {link.URL.toString()} variant="outlined" color="secondary">
+                            {link.DisplayText}
+                          </Button>
+                        </Grid>
+                      )
+                    })
+                  }
                 </Grid>
               </Paper>
             </Grid>
